@@ -1,0 +1,56 @@
+﻿<Window x:Class="MemoryGameMVVM.WPF.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MemoryGameMVVM.WPF.View"
+		xmlns:viewmodel="clr-namespace:MemoryGameMVVM.WPF.ViewModel"
+        mc:Ignorable="d"
+        Title="Memory Game" Height="450" Width="400" MinHeight="200" MinWidth="400" WindowStartupLocation="CenterScreen">
+
+	<Window.Resources>
+		<viewmodel:GameViewModel x:Key="viewModel" />
+	</Window.Resources>
+
+	<Grid x:Name="MainGrid" DataContext="{StaticResource ResourceKey=viewModel}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<TextBlock x:Name="tb0" Grid.Row="0" Grid.Column="0" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb1" Grid.Row="0" Grid.Column="1" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb2" Grid.Row="0" Grid.Column="2" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb3" Grid.Row="0" Grid.Column="3" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb4" Grid.Row="1" Grid.Column="0" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb5" Grid.Row="1" Grid.Column="1" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb6" Grid.Row="1" Grid.Column="2" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb7" Grid.Row="1" Grid.Column="3" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb8" Grid.Row="2" Grid.Column="0" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb9" Grid.Row="2" Grid.Column="1" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb10" Grid.Row="2" Grid.Column="2" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb11" Grid.Row="2" Grid.Column="3" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb12" Grid.Row="3" Grid.Column="0" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb13" Grid.Row="3" Grid.Column="1" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb14" Grid.Row="3" Grid.Column="2" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		<TextBlock x:Name="tb15" Grid.Row="3" Grid.Column="3" Text="?" FontSize="50" MouseDown="TextBlock_MouseDown" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+		<TextBlock x:Name="TimerText" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" FontSize="36" MouseDown="TimerText_MouseDown" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<Run Text="Time:" />
+			<Run Text="{Binding Minutes, Mode=OneWay}" />
+			<Run Text=":" />
+			<Run Text="{Binding Seconds, Mode=OneWay}" />
+			<Run Text="." />
+			<Run Text="{Binding Milliseconds, Mode=OneWay}" />
+		</TextBlock>
+	</Grid>
+</Window>

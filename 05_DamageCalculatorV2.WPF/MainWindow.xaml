@@ -1,0 +1,27 @@
+﻿<Window x:Class="DamageCalculatorV2.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DamageCalculatorV2.WPF"
+        mc:Ignorable="d"
+        Title="Obrażenia od miecza" Height="200" Width="300" WindowStartupLocation="CenterScreen">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<CheckBox x:Name="ChIsFlaming" Grid.Row="0" Grid.Column="0" Content="Płonący" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="Flaming_Checked" Unchecked="Flaming_Unchecked" />
+		<CheckBox x:Name="ChIsMagic" Grid.Row="0" Grid.Column="1" Content="Magiczny" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="Magic_Checked" Unchecked="Magic_Unchecked" />
+
+		<Button x:Name="BtnRollDice" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Wykonaj rzut" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" />
+
+		<TextBlock x:Name="TxtDisplayDamage" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="obrażenia" HorizontalAlignment="Center" VerticalAlignment="Center" />
+	</Grid>
+</Window>

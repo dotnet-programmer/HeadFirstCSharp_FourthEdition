@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="BasketballRoster.WPF.View.RosterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:BasketballRoster.WPF.View"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+	<Border BorderThickness="2" BorderBrush="blue" CornerRadius="6" Background="Black">
+		<StackPanel Margin="20">
+			<TextBlock Text="{Binding TeamName}" Foreground="White" FontFamily="Segoe" FontSize="20" FontWeight="Bold" />
+			<TextBlock Text="Starting players" Foreground="White" FontFamily="Segoe" FontSize="16" FontWeight="Bold" Margin="0,5,0,0" />
+			<ListBox ItemsSource="{Binding Starters}" Background="Black" Foreground="White" Margin="0,5,0,0" />
+			<TextBlock Text="Bench players" Foreground="White" FontFamily="Segoe" FontSize="16" FontWeight="Bold" Margin="0,5,0,0" />
+			<ListBox ItemsSource="{Binding Bench}" Background="Black" Foreground="White" Margin="0,5,0,0" />
+		</StackPanel>
+	</Border>
+</UserControl>
