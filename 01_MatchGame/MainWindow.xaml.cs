@@ -29,8 +29,8 @@ public partial class MainWindow : Window
 
 	private void SetUpGame()
 	{
-		List<string> animals = new()
-		{
+		List<string> animals =
+		[
 			"🦇", "🦇",
 			"🐅", "🐅",
 			"🦥", "🦥",
@@ -39,7 +39,7 @@ public partial class MainWindow : Window
 			"🐘", "🐘",
 			"🦭", "🦭",
 			"🦀", "🦀",
-		};
+		];
 
 		Random random = new();
 

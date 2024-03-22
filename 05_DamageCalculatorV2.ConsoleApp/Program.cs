@@ -1,7 +1,6 @@
 ﻿using DamageCalculatorV2.ConsoleApp;
 
 Random random = new();
-
 SwordDamage swordDamage = new(RollDice());
 
 while (true)
@@ -19,4 +18,5 @@ while (true)
 	Console.WriteLine($"\nRzut: {swordDamage.Roll}, punkty obrażeń: {swordDamage.Damage}\n");
 }
 
-int RollDice() => random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7);
+int RollDice() 
+	=> random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7);

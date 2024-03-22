@@ -25,11 +25,15 @@ public partial class StopwatchControl : UserControl
 		_timer.Start();
 	}
 
-	private void TimerTick(object sender, EventArgs e) => _stopwatchViewModel.OnPropertyChanged(String.Empty);
+	private void TimerTick(object sender, EventArgs e) 
+		=> _stopwatchViewModel.OnPropertyChanged(String.Empty);
 
-	private void StartStopButton_Click(object sender, RoutedEventArgs e) => _stopwatchViewModel.StartStop();
+	private void StartStopButton_Click(object sender, RoutedEventArgs e) 
+		=> _stopwatchViewModel.StartStop();
 
-	private void ResetButton_Click(object sender, RoutedEventArgs e) => _stopwatchViewModel.Reset();
+	private void ResetButton_Click(object sender, RoutedEventArgs e) 
+		=> _stopwatchViewModel.Reset();
 
-	private void LapButton_Click(object sender, RoutedEventArgs e) => _stopwatchViewModel.LapTime();
+	private void LapButton_Click(object sender, RoutedEventArgs e) 
+		=> _stopwatchViewModel.LapTime();
 }

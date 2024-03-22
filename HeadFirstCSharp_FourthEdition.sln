@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_BeehiveManagementSystem.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_DamageCalculator.ConsoleApp", "06_DamageCalculator.ConsoleApp\06_DamageCalculator.ConsoleApp.csproj", "{880DC0A1-5A0E-40C5-B76D-747C88F81507}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_Dziedziczenie", "06_Dziedziczenie\06_Dziedziczenie.csproj", "{65EC9A93-BC04-45DD-BCCD-218B5C11528D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_Inheritance", "06_Inheritance\06_Inheritance.csproj", "{65EC9A93-BC04-45DD-BCCD-218B5C11528D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_TwoDecks.WPF", "08_TwoDecks.WPF\08_TwoDecks.WPF.csproj", "{320A26A7-1E4A-43F9-82B5-BAFE318F1BA9}"
 EndProject

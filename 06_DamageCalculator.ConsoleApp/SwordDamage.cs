@@ -1,13 +1,9 @@
 ﻿namespace DamageCalculator.ConsoleApp;
 
-internal class SwordDamage : WeaponDamage
+internal class SwordDamage(int startingRoll) : WeaponDamage(startingRoll)
 {
 	public const int BASE_DAMAGE = 3;
 	public const int FLAME_DAMAGE = 2;
-
-	public SwordDamage(int startingRoll) : base(startingRoll)
-	{
-	}
 
 	protected override void CalculateDamage()
 	{

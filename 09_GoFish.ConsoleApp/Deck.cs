@@ -2,9 +2,10 @@
 
 public class Deck : List<Card>
 {
-	private static readonly Random random = Player.Random;
+	private static readonly Random _random = Player.Random;
 
-	public Deck() => Reset();
+	public Deck() 
+		=> Reset();
 
 	public void Reset()
 	{
@@ -24,7 +25,7 @@ public class Deck : List<Card>
 		Clear();
 		while (copy.Count > 0)
 		{
-			int index = random.Next(copy.Count);
+			int index = _random.Next(copy.Count);
 			Card card = copy[index];
 			copy.RemoveAt(index);
 			Add(card);

@@ -1,18 +1,27 @@
-﻿using BasketballRoster.WPF.Model;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
+using BasketballRoster.WPF.Model;
 
 namespace BasketballRoster.WPF.ViewModel;
 
 //internal class RosterViewModel : INotifyPropertyChanged
 internal class RosterViewModel
 {
-	public ObservableCollection<PlayerViewModel> Starters { get; set; }
-	public ObservableCollection<PlayerViewModel> Bench { get; set; }
-
 	private readonly Roster _roster;
-
 	private string _teamName;
+
+	public RosterViewModel(Roster roster)
+	{
+		_roster = roster;
+
+		Starters = [];
+		Bench = [];
+
+		TeamName = _roster.TeamName;
+
+		UpdateRosters();
+	}
+
 	public string TeamName
 	{
 		get => _teamName;
@@ -21,24 +30,14 @@ internal class RosterViewModel
 			_teamName = value;
 	}
 
+	public ObservableCollection<PlayerViewModel> Bench { get; set; }
+	public ObservableCollection<PlayerViewModel> Starters { get; set; }
+
 	//private void OnPropertyChanged(string name)
 	//{
 	//	PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 	//}
 	//public event PropertyChangedEventHandler? PropertyChanged;
-
-	public RosterViewModel(Roster roster)
-	{
-		_roster = roster;
-
-		Starters = new ObservableCollection<PlayerViewModel>();
-		Bench = new ObservableCollection<PlayerViewModel>();
-
-		TeamName = _roster.TeamName;
-
-		UpdateRosters();
-	}
-
 	private void UpdateRosters()
 	{
 		var startingPlayers = _roster.Players.Where(p => p.Starter).Select(p => new PlayerViewModel(p.Name, p.Number));

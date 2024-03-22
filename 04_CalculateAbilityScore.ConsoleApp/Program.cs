@@ -1,6 +1,7 @@
 ﻿using AbilityScoreTester.ConsoleApp;
 
 AbilityScoreCalculator calculator = new();
+
 while (true)
 {
 	calculator.RollResult = ReadInt(calculator.RollResult, "Początkowy rzut 4d6");
@@ -8,8 +9,10 @@ while (true)
 	calculator.AddAmount = ReadInt(calculator.AddAmount, "Dodawana wartość");
 	calculator.Minimum = ReadInt(calculator.Minimum, "Minimum");
 	calculator.CalculateAbilityScore();
+
 	Console.WriteLine("Obliczone punkty umiejętności: " + calculator.Score);
 	Console.WriteLine("Wciśnij Q, by zakończyć, lub inny klawisz, aby kontynuować");
+
 	char keyChar = Console.ReadKey(true).KeyChar;
 	if (keyChar is 'Q' or 'q')
 	{

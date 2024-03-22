@@ -2,47 +2,48 @@
 
 internal class WeaponDamage
 {
-	public int Damage { get; protected set; }
-
-	private int roll;
-	public int Roll
-	{
-		get => roll;
-		set
-		{
-			roll = value;
-			CalculateDamage();
-		}
-	}
-
-	private bool magic;
-	public bool Magic
-	{
-		get => magic;
-		set
-		{
-			magic = value;
-			CalculateDamage();
-		}
-	}
-
-	private bool flaming;
-	public bool Flaming
-	{
-		get => flaming;
-		set
-		{
-			flaming = value;
-			CalculateDamage();
-		}
-	}
-
-	protected virtual void CalculateDamage()
-	{ /* Przesłaniana w podklasie. */ }
+	private int _roll;
+	private bool _magic;
+	private bool _flaming;
 
 	public WeaponDamage(int startingRoll)
 	{
-		roll = startingRoll;
+		_roll = startingRoll;
 		CalculateDamage();
 	}
+
+	public int Roll
+	{
+		get => _roll;
+		set
+		{
+			_roll = value;
+			CalculateDamage();
+		}
+	}
+
+	public bool Magic
+	{
+		get => _magic;
+		set
+		{
+			_magic = value;
+			CalculateDamage();
+		}
+	}
+
+	public bool Flaming
+	{
+		get => _flaming;
+		set
+		{
+			_flaming = value;
+			CalculateDamage();
+		}
+	}
+
+	public int Damage { get; protected set; }
+
+	protected virtual void CalculateDamage()
+	{ /* Przesłaniana w podklasie. */ }
 }

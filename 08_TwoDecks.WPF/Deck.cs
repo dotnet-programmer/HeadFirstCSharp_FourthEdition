@@ -6,9 +6,10 @@ namespace TwoDecks.WPF;
 
 internal class Deck : ObservableCollection<Card>
 {
-	private static readonly Random random = new();
+	private static readonly Random _random = new();
 
-	public Deck() => Reset();
+	public Deck() 
+		=> Reset();
 
 	public Card Deal(int index)
 	{
@@ -35,7 +36,7 @@ internal class Deck : ObservableCollection<Card>
 		Clear();
 		while (copy.Count > 0)
 		{
-			int index = random.Next(copy.Count);
+			int index = _random.Next(copy.Count);
 			Card card = copy[index];
 			copy.RemoveAt(index);
 			Add(card);

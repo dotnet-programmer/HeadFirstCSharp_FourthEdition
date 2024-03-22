@@ -1,4 +1,4 @@
-﻿namespace Dziedziczenie;
+﻿namespace Inheritance;
 
 internal class Ostrich : Bird
 {

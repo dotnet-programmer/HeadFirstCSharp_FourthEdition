@@ -7,9 +7,6 @@ namespace Stopwatch.WPF.View;
 /// </summary>
 public partial class MainWindow : Window
 {
-	public MainWindow() => InitializeComponent();
-
-	private void StopwatchControl_Loaded()
-	{
-	}
+	public MainWindow() 
+		=> InitializeComponent();
 }

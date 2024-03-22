@@ -1,17 +1,15 @@
 ﻿namespace HideAndSeek.ConsoleApp;
 
-public class Opponent
+public class Opponent(string name)
 {
-	public readonly string Name;
+	public readonly string Name = name;
 
-	public Opponent(string name) => Name = name;
-
-	public override string ToString() => Name;
+	public override string ToString() 
+		=> Name;
 
 	public Location Hide()
 	{
 		var currentLocation = House.Entry;
-
 		var locationsToMoveThrough = House.Random.Next(10, 20);
 
 		for (int i = 0; i < locationsToMoveThrough; i++)
@@ -25,9 +23,7 @@ public class Opponent
 		}
 
 		(currentLocation as LocationWithHidingPlace).Hide(this);
-
 		System.Diagnostics.Debug.WriteLine($"{Name} is hiding {(currentLocation as LocationWithHidingPlace).HidingPlace} in the {currentLocation.Name}");
-
 		return currentLocation;
 	}
 }

@@ -1,15 +1,8 @@
 ﻿namespace BasketballRoster.WPF.Model;
 
-internal class Player
+internal class Player(string name, int number, bool starter)
 {
-	public string Name { get; private set; }
-	public int Number { get; private set; }
-	public bool Starter { get; private set; }
-
-	public Player(string name, int number, bool starter)
-	{
-		Name = name;
-		Number = number;
-		Starter = starter;
-	}
+	public string Name { get; private set; } = name;
+	public int Number { get; private set; } = number;
+	public bool Starter { get; private set; } = starter;
 }

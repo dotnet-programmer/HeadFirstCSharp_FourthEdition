@@ -6,7 +6,8 @@ namespace GoFish.Tests;
 public class GameControllerTests
 {
 	[TestInitialize]
-	public void Initialize() => Player.Random = new MockRandom() { ValueToReturn = 0 };
+	public void Initialize() 
+		=> Player.Random = new MockRandom() { ValueToReturn = 0 };
 
 	[TestMethod]
 	public void TestConstructor()

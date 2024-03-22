@@ -15,11 +15,10 @@ namespace MemoryGame.WPF;
 public partial class MainWindow : Window
 {
 	private readonly DispatcherTimer _timer = new();
+	private readonly Random _random = new();
+	private readonly List<string> _randomAnimals = [];
+
 	private int _tenthsOfSecondsElapsed;
-	private readonly Random random = new();
-
-	private readonly List<string> _randomAnimals = new();
-
 	private int _matchesFound;
 	private bool _findingMatch;
 	private TextBlock? _lastTextBlock;
@@ -45,8 +44,8 @@ public partial class MainWindow : Window
 
 	private void SetUpGame()
 	{
-		List<string> animals = new()
-		{
+		List<string> animals =
+		[
 			"🦇", "🦇",
 			"🐅", "🐅",
 			"🦥", "🦥",
@@ -55,14 +54,14 @@ public partial class MainWindow : Window
 			"🐘", "🐘",
 			"🦭", "🦭",
 			"🦀", "🦀",
-		};
+		];
 
 		_randomAnimals.Clear();
 
 		foreach (var item in MainGrid.Children.OfType<TextBlock>())
 		{
 			item.Text = "?";
-			int index = random.Next(animals.Count);
+			int index = _random.Next(animals.Count);
 			_randomAnimals.Add(animals[index]);
 			animals.RemoveAt(index);
 		}

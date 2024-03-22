@@ -81,7 +81,8 @@ public partial class MainWindow : Window
 		}
 	}
 
-	private void ListBoxLeftDeck_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => MoveCard(true);
+	private void ListBoxLeftDeck_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e) 
+		=> MoveCard(true);
 
 	private void ListBoxRightDeck_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
 	{
@@ -91,5 +92,6 @@ public partial class MainWindow : Window
 		}
 	}
 
-	private void ListBoxRightDeck_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => MoveCard(false);
+	private void ListBoxRightDeck_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e) 
+		=> MoveCard(false);
 }

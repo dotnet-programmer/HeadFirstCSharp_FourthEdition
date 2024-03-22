@@ -1,4 +1,6 @@
 ﻿namespace EnumerableClass;
 
 internal enum Sport
-{ Futbol, Baseball, Koszykówka, Hokej, Boks, Rugby, Szermierka }
+{ 
+	Futbol, Baseball, Koszykówka, Hokej, Boks, Rugby, Szermierka
+}

@@ -7,49 +7,61 @@ internal class SwordDamage
 	private const int BASE_DAMAGE = 3;
 	private const int FLAME_DAMAGE = 2;
 
+	private int _roll;
+	private bool _magic;
+	private bool _flaming;
+
+	/// <summary>
+	/// Konstruktor oblicza obrażenia na podstawie domyślnych wartości właściwości
+	/// Magic i Flaming oraz początkowego rzutu 3d6.
+	/// </summary>
+	/// <param name=”startingRoll”>Początkowy rzut 3d6</param>
+	public SwordDamage(int startingRoll)
+	{
+		_roll = startingRoll;
+		CalculateDamage();
+	}
+
 	/// <summary>
 	/// Zawiera obliczone obrażenia.
 	/// </summary>
 	public int Damage { get; private set; }
 
-	private int roll;
 	/// <summary>
 	/// Ustawia lub pobiera wartość rzutu 3d6.
 	/// </summary>
 	public int Roll
 	{
-		get => roll;
+		get => _roll;
 		set
 		{
-			roll = value;
+			_roll = value;
 			CalculateDamage();
 		}
 	}
 
-	private bool magic;
 	/// <summary>
 	/// Zwraca true, jeśli miecz jest magiczny; w przeciwnym razie zwraca false.
 	/// </summary>
 	public bool Magic
 	{
-		get => magic;
+		get => _magic;
 		set
 		{
-			magic = value;
+			_magic = value;
 			CalculateDamage();
 		}
 	}
 
-	private bool flaming;
 	/// <summary>
 	/// Zwraca true, jeśli miecz jest płonący; w przeciwnym razie zwraca false.
 	/// </summary>
 	public bool Flaming
 	{
-		get => flaming;
+		get => _flaming;
 		set
 		{
-			flaming = value;
+			_flaming = value;
 			CalculateDamage();
 		}
 	}
@@ -72,16 +84,5 @@ internal class SwordDamage
 			Damage += FLAME_DAMAGE;
 		}
 		Debug.WriteLine("Jestem w CalculateDamage");
-	}
-
-	/// <summary>
-	/// Konstruktor oblicza obrażenia na podstawie domyślnych wartości właściwości
-	/// Magic i Flaming oraz początkowego rzutu 3d6.
-	/// </summary>
-	/// <param name=”startingRoll”>Początkowy rzut 3d6</param>
-	public SwordDamage(int startingRoll)
-	{
-		roll = startingRoll;
-		CalculateDamage();
 	}
 }

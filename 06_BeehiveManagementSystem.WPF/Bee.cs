@@ -1,11 +1,10 @@
 ﻿namespace BeehiveManagementSystem.WPF;
 
-internal class Bee
+internal class Bee(string job)
 {
 	public virtual float CostPerShift { get; }
-	public string Job { get; private set; }
 
-	public Bee(string job) => Job = job;
+	public string Job { get; private set; } = job;
 
 	public void WorkTheNextShift()
 	{

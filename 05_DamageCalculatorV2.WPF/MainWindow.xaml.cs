@@ -8,47 +8,49 @@ namespace DamageCalculatorV2.WPF;
 /// </summary>
 public partial class MainWindow : Window
 {
-	private readonly Random random = new();
-	private readonly SwordDamage swordDamage;
+	private readonly Random _random = new();
+	private readonly SwordDamage _swordDamage;
 
 	public MainWindow()
 	{
 		InitializeComponent();
-		swordDamage = new SwordDamage(random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7));
+		_swordDamage = new SwordDamage(_random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7));
 		DisplayDamage();
 	}
 
 	public void RollDice()
 	{
-		swordDamage.Roll = random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7);
+		_swordDamage.Roll = _random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7);
 		DisplayDamage();
 	}
 
-	private void DisplayDamage() => TxtDisplayDamage.Text = $"Rzut: {swordDamage.Roll}, punkty obrażeń: {swordDamage.Damage}";
+	private void DisplayDamage() 
+		=> TxtDisplayDamage.Text = $"Rzut: {_swordDamage.Roll}, punkty obrażeń: {_swordDamage.Damage}";
 
-	private void Button_Click(object sender, RoutedEventArgs e) => RollDice();
+	private void Button_Click(object sender, RoutedEventArgs e) 
+		=> RollDice();
 
 	private void Flaming_Checked(object sender, RoutedEventArgs e)
 	{
-		swordDamage.Flaming = true;
+		_swordDamage.Flaming = true;
 		DisplayDamage();
 	}
 
 	private void Flaming_Unchecked(object sender, RoutedEventArgs e)
 	{
-		swordDamage.Flaming = false;
+		_swordDamage.Flaming = false;
 		DisplayDamage();
 	}
 
 	private void Magic_Checked(object sender, RoutedEventArgs e)
 	{
-		swordDamage.Magic = true;
+		_swordDamage.Magic = true;
 		DisplayDamage();
 	}
 
 	private void Magic_Unchecked(object sender, RoutedEventArgs e)
 	{
-		swordDamage.Magic = false;
+		_swordDamage.Magic = false;
 		DisplayDamage();
 	}
 }

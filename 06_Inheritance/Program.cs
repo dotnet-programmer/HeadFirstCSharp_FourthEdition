@@ -1,4 +1,4 @@
-﻿using Dziedziczenie;
+﻿using Inheritance;
 
 while (true)
 {

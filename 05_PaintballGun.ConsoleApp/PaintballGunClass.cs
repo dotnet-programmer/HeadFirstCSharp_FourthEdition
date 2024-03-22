@@ -2,16 +2,23 @@
 
 internal class PaintballGunClass
 {
+	private int _balls = 0;
+
+	public PaintballGunClass(int balls, int magazineSize, bool loaded)
+	{
+		_balls = balls;
+		MagazineSize = magazineSize;
+		if (!loaded)
+		{
+			Reload();
+		}
+	}
+
 	//public const int MAGAZINE_SIZE = 16;
 	public int MagazineSize { get; private set; } = 16;
 
-	private int balls = 0;
-
 	//private int ballsLoaded = 0;
 	//public int GetBallsLoaded() => ballsLoaded;
-
-	public bool IsEmpty() => BallsLoaded == 0;
-
 	public int BallsLoaded { get; private set; }
 
 	//public int GetBalls() => balls;
@@ -27,29 +34,22 @@ internal class PaintballGunClass
 
 	public int Balls
 	{
-		get => balls;
+		get => _balls;
 		set
 		{
 			if (value > 0)
 			{
-				balls = value;
+				_balls = value;
 			}
 			Reload();
 		}
 	}
 
-	public PaintballGunClass(int balls, int magazineSize, bool loaded)
-	{
-		this.balls = balls;
-		MagazineSize = magazineSize;
-		if (!loaded)
-		{
-			Reload();
-		}
-	}
+	public bool IsEmpty() 
+		=> BallsLoaded == 0;
 
-	//public void Reload() => BallsLoaded = balls > MAGAZINE_SIZE ? MAGAZINE_SIZE : balls;
-	public void Reload() => BallsLoaded = balls > MagazineSize ? MagazineSize : balls;
+	public void Reload() 
+		=> BallsLoaded = _balls > MagazineSize ? MagazineSize : _balls;
 
 	public bool Shoot()
 	{
@@ -59,7 +59,7 @@ internal class PaintballGunClass
 		}
 
 		BallsLoaded--;
-		balls--;
+		_balls--;
 		return true;
 	}
 }

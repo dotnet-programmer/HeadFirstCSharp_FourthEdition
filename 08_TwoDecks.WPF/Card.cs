@@ -1,17 +1,13 @@
 ﻿namespace TwoDecks.WPF;
 
-internal class Card
+internal class Card(Values value, Suits suit)
 {
-	public Values Value { get; private set; }
-	public Suits Suit { get; private set; }
+	public Values Value { get; private set; } = value;
+	public Suits Suit { get; private set; } = suit;
 
-	public Card(Values value, Suits suit)
-	{
-		this.Suit = suit;
-		this.Value = value;
-	}
+	public string Name 
+		=> $"{Value} of {Suit}";
 
-	public string Name => $"{Value} of {Suit}";
-
-	public override string ToString() => Name;
+	public override string ToString() 
+		=> Name;
 }

@@ -6,5 +6,6 @@ internal class Guy
 	public HairStyle Hair { get; set; }
 	public Outfit Clothes { get; set; }
 
-	public override string ToString() => $"{Name} ma {Hair} i nosi {Clothes}.";
+	public override string ToString() 
+		=> $"{Name} ma {Hair} i nosi {Clothes}.";
 }

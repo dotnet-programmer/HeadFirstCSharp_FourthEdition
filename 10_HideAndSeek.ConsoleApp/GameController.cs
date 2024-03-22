@@ -5,63 +5,26 @@ namespace HideAndSeek.ConsoleApp;
 public class GameController
 {
 	/// <summary>
-	/// The number of moves the player has made
-	/// </summary>
-	public int MoveNumber { get; private set; } = 1;
-
-	/// <summary>
-	/// The player's current location in the house
-	/// </summary>
-	public Location CurrentLocation { get; private set; }
-
-	/// <summary>
 	/// Private list of opponents the player needs to find
 	/// </summary>
 	public readonly IEnumerable<Opponent> Opponents = new List<Opponent>()
 	{
-		new Opponent("Joe"),
-		new Opponent("Bob"),
-		new Opponent("Ana"),
-		new Opponent("Owen"),
-		new Opponent("Jimmy"),
+		new("Joe"),
+		new("Bob"),
+		new("Ana"),
+		new("Owen"),
+		new("Jimmy"),
 	};
 
 	/// <summary>
 	/// Private list of opponents the player has found so far
 	/// </summary>
-	private readonly List<Opponent> foundOpponents = new();
-
-	/// <summary>
-	/// Returns true if the game is over
-	/// </summary>
-	public bool GameOver => Opponents.Count() == foundOpponents.Count();
-
-	/// <summary>
-	/// Returns the the current status to show to the player
-	/// </summary>
-	public string Status
-	{
-		get
-		{
-			var found = foundOpponents.Count() == 0 ? "You have not found any opponents"
-				: $"You have found {foundOpponents.Count()} of {Opponents.Count()} opponents: {string.Join(", ", foundOpponents.Select(o => o.Name))}";
-			var hidingPlace = (CurrentLocation is LocationWithHidingPlace location) ?
-				$"{Environment.NewLine}Someone could hide {location.HidingPlace}" : "";
-			return $"You are in the {CurrentLocation}. You see the following exits:" + Environment.NewLine +
-				$" - {string.Join(Environment.NewLine + " - ", CurrentLocation.ExitList)}{hidingPlace}" +
-				$"{Environment.NewLine}{found}";
-		}
-	}
-
-	/// <summary>
-	/// A prompt to display to the player
-	/// </summary>
-	public string Prompt => $"{MoveNumber}: Which direction do you want to go (or type 'check'): ";
+	private readonly List<Opponent> _foundOpponents = [];
 
 	/// <summary>
 	/// A Dictionary to keep track of the opponent locations
 	/// </summary>
-	private readonly Dictionary<string, string> opponentLocations = new();
+	private readonly Dictionary<string, string> _opponentLocations = [];
 
 	public GameController()
 	{
@@ -73,6 +36,48 @@ public class GameController
 
 		CurrentLocation = House.Entry;
 	}
+
+	/// <summary>
+	/// The number of moves the player has made
+	/// </summary>
+	public int MoveNumber { get; private set; } = 1;
+
+	/// <summary>
+	/// The player's current location in the house
+	/// </summary>
+	public Location CurrentLocation { get; private set; }
+
+	/// <summary>
+	/// Returns true if the game is over
+	/// </summary>
+	public bool GameOver => Opponents.Count() == _foundOpponents.Count;
+
+	/// <summary>
+	/// Returns the the current status to show to the player
+	/// </summary>
+	public string Status
+	{
+		get
+		{
+			var found = _foundOpponents.Count() == 0
+				? "You have not found any opponents"
+				: $"You have found {_foundOpponents.Count()} of {Opponents.Count()} opponents: {string.Join(", ", _foundOpponents.Select(o => o.Name))}";
+
+			var hidingPlace = (CurrentLocation is LocationWithHidingPlace location)
+				? $"{Environment.NewLine}Someone could hide {location.HidingPlace}"
+				: "";
+
+			return $"You are in the {CurrentLocation}. You see the following exits:" + Environment.NewLine +
+				$" - {string.Join(Environment.NewLine + " - ", CurrentLocation.ExitList)}{hidingPlace}" +
+				$"{Environment.NewLine}{found}";
+		}
+	}
+
+	/// <summary>
+	/// A prompt to display to the player
+	/// </summary>
+	public string Prompt
+		=> $"{MoveNumber}: Which direction do you want to go (or type 'check'): ";
 
 	/// <summary>
 	/// Move to the location in a direction
@@ -117,7 +122,7 @@ public class GameController
 				}
 				else
 				{
-					foundOpponents.AddRange(found);
+					_foundOpponents.AddRange(found);
 					var s = found.Count() == 1 ? "" : "s";
 					results = $"You found {found.Count()} opponent{s} hiding {locationWithHidingPlace.HidingPlace}";
 				}
@@ -158,8 +163,8 @@ public class GameController
 			var savedGame = new SavedGame()
 			{
 				PlayerLocation = CurrentLocation.Name,
-				OpponentLocations = opponentLocations,
-				FoundOpponents = foundOpponents.Select(opponent => opponent.Name).ToList(),
+				OpponentLocations = _opponentLocations,
+				FoundOpponents = _foundOpponents.Select(opponent => opponent.Name).ToList(),
 				MoveNumber = this.MoveNumber,
 			};
 
@@ -199,8 +204,8 @@ public class GameController
 					location.Hide(opponent);
 				}
 			}
-			foundOpponents.Clear();
-			foundOpponents.AddRange(savedGame.FoundOpponents.Select(name => new Opponent(name)));
+			_foundOpponents.Clear();
+			_foundOpponents.AddRange(savedGame.FoundOpponents.Select(name => new Opponent(name)));
 			MoveNumber = savedGame.MoveNumber;
 			return $"Loaded game from {filename}";
 		}

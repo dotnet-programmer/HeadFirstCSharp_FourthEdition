@@ -9,9 +9,11 @@ namespace WPFControls;
 /// </summary>
 public partial class MainWindow : Window
 {
-	public MainWindow() => InitializeComponent();
+	public MainWindow()
+		=> InitializeComponent();
 
-	private void TbNumber_TextChanged(object sender, TextChangedEventArgs e) => tbShowNumber.Text = tbNumber.Text;
+	private void TbNumber_TextChanged(object sender, TextChangedEventArgs e)
+		=> tbShowNumber.Text = tbNumber.Text;
 
 	private void TbNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
 	{
@@ -23,9 +25,11 @@ public partial class MainWindow : Window
 		//e.Handled = (!int.TryParse(e.Text, out int result));
 	}
 
-	private void SmallSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => tbShowNumber.Text = SmallSlider.Value.ToString("0");
+	private void SmallSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		=> tbShowNumber.Text = SmallSlider.Value.ToString("0");
 
-	private void BigSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => tbShowNumber.Text = BigSlider.Value.ToString("000-000-000");
+	private void BigSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		=> tbShowNumber.Text = BigSlider.Value.ToString("000-000-000");
 
 	private void RadioButton_Checked(object sender, RoutedEventArgs e)
 	{

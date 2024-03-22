@@ -1,4 +1,4 @@
-﻿namespace Dziedziczenie;
+﻿namespace Inheritance;
 
 internal class Bird
 {
@@ -7,6 +7,6 @@ internal class Bird
 	public virtual Egg[] LayEggs(int numberOfEggs)
 	{
 		Console.Error.WriteLine("Metoda Bird.LayEggs nie powinna być wywoływana");
-		return Array.Empty<Egg>();
+		return [];
 	}
 }

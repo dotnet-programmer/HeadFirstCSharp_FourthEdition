@@ -2,6 +2,7 @@
 
 Random random = new();
 SwordDamage swordDamage = new();
+
 while (true)
 {
 	Console.Write("0 — ani magiczny, ani płonący; 1 — magiczny; 2 — płonący; 3 — magiczny i płonący; inne wartości — koniec: ");

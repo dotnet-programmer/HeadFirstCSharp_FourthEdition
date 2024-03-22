@@ -4,6 +4,9 @@ namespace EnumerableClass;
 
 internal class BetterSportSequence : IEnumerable<Sport>
 {
+	public Sport this[int index]
+		=> (Sport)index;
+
 	public IEnumerator<Sport> GetEnumerator()
 	{
 		int maxEnumValue = Enum.GetValues(typeof(Sport)).Length - 1;
@@ -13,7 +16,6 @@ internal class BetterSportSequence : IEnumerable<Sport>
 		}
 	}
 
-	IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-	public Sport this[int index] => (Sport)index;
+	IEnumerator IEnumerable.GetEnumerator() 
+		=> GetEnumerator();
 }

@@ -8,14 +8,14 @@ public static class House
 	public static readonly Location Entry;
 
 	/// <summary>
-	/// Private collection of locations in the house
-	/// </summary>
-	private static readonly IEnumerable<Location> _locations;
-
-	/// <summary>
 	/// The instance of Random used to choose random lcations
 	/// </summary>
 	public static Random Random = new();
+
+	/// <summary>
+	/// Private collection of locations in the house
+	/// </summary>
+	private static readonly IEnumerable<Location> _locations;
 
 	/// <summary>
 	/// Sets up the house data structure
@@ -52,7 +52,7 @@ public static class House
 		masterBedroom.AddExit(Direction.East, masterBath);
 
 		// Add all of the locations to the private locations collection
-		_locations = new List<Location>() {
+		_locations = [
 			Entry,
 			hallway,
 			kitchen,
@@ -68,7 +68,7 @@ public static class House
 			garage,
 			attic,
 			masterBath,
-		};
+		];
 	}
 
 	/// <summary>
@@ -76,7 +76,8 @@ public static class House
 	/// </summary>
 	/// <param name="name">The name of the location to find</param>
 	/// <returns>The location, or Entry if no location by that name was found</returns>
-	public static Location GetLocationByName(string location) => _locations.Any(x => x.Name == location) ? _locations.First(x => x.Name == location) : Entry;
+	public static Location GetLocationByName(string location) 
+		=> _locations.Any(x => x.Name == location) ? _locations.First(x => x.Name == location) : Entry;
 
 	//public static Location RandomExit(Location location) => location.Exits.ElementAt(Random.Next(location.Exits.Count)).Value;
 
@@ -85,8 +86,8 @@ public static class House
 	/// </summary>
 	/// <param name="location">Location to get the random exit from</param>
 	/// <returns>One of the locatin's exits selected randomly</returns>
-	public static Location RandomExit(Location location) =>
-		GetLocationByName(
+	public static Location RandomExit(Location location) 
+		=> GetLocationByName(
 			location
 				.Exits
 				.OrderBy(exit => exit.Value.Name)

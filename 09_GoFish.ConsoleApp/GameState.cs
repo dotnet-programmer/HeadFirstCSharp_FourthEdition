@@ -5,7 +5,6 @@ public class GameState
 	public readonly IEnumerable<Player> Players;
 	public readonly IEnumerable<Player> Opponents;
 	public readonly Player HumanPlayer;
-	public bool GameOver { get; private set; } = false;
 	public readonly Deck Stock;
 
 	/// <summary>
@@ -32,12 +31,15 @@ public class GameState
 		Players = new List<Player>() { HumanPlayer }.Concat(Opponents);
 	}
 
+	public bool GameOver { get; private set; } = false;
+
 	/// <summary>
 	/// Gets a random player that doesn't match the current player
 	/// </summary>
 	/// <param name="currentPlayer">The current player</param>
 	/// <returns>A random player that the current player can ask for a card</returns>
-	public Player RandomPlayer(Player currentPlayer) => Players.Where(p => p != currentPlayer).ElementAt(Player.Random.Next(Players.Count() - 1));
+	public Player RandomPlayer(Player currentPlayer) 
+		=> Players.Where(p => p != currentPlayer).ElementAt(Player.Random.Next(Players.Count() - 1));
 
 	/// <summary>
 	/// Makes one player play a round

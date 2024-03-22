@@ -3,19 +3,17 @@
 internal class StopwatchModel
 {
 	private DateTime _startedTime;
-
-	private bool _paused;
 	private DateTime _pausedAt;
 	private TimeSpan _totalPausedTime;
-
-	public TimeSpan LapTime { get; private set; }
-
-	public void SetLapTime() => LapTime = Elapsed;
+	private bool _paused;
 
 	/// <summary>
 	/// The constructor resets the stopwatch
 	/// </summary>
-	public StopwatchModel() => Reset();
+	public StopwatchModel()
+		=> Reset();
+
+	public TimeSpan LapTime { get; private set; }
 
 	/// <summary>
 	/// Returns true if the stopwatch is running
@@ -49,9 +47,15 @@ internal class StopwatchModel
 	/// <summary>
 	/// Returns the elapsed time, or zero if the stopwatch is not running
 	/// </summary>
-	public TimeSpan Elapsed =>
-		_paused ? _pausedAt - _startedTime - _totalPausedTime :
-		_startedTime != DateTime.MinValue ? DateTime.Now - _startedTime - _totalPausedTime : TimeSpan.Zero;
+	public TimeSpan Elapsed 
+		=> _paused
+		? _pausedAt - _startedTime - _totalPausedTime
+		: _startedTime != DateTime.MinValue 
+			? DateTime.Now - _startedTime - _totalPausedTime 
+			: TimeSpan.Zero;
+
+	public void SetLapTime() 
+		=> LapTime = Elapsed;
 
 	/// <summary>
 	/// Resets the stopwatch by setting its started time to DateTime.MinValue

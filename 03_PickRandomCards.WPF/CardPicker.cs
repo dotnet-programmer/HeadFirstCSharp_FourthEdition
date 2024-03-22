@@ -4,7 +4,7 @@ namespace PickRandomCards.WPF;
 
 internal class CardPicker
 {
-	private static readonly Random random = new();
+	private static readonly Random _random = new();
 
 	public static string[] PickSomeCards(int numberOfCards)
 	{
@@ -18,7 +18,7 @@ internal class CardPicker
 
 	private static string RandomSuit()
 	{
-		int suit = random.Next(1, 5);
+		int suit = _random.Next(1, 5);
 		return suit switch
 		{
 			1 => "pik",
@@ -31,7 +31,7 @@ internal class CardPicker
 
 	private static string RandomValue()
 	{
-		int value = random.Next(1, 14);
+		int value = _random.Next(1, 14);
 		return value switch
 		{
 			1 => "As",

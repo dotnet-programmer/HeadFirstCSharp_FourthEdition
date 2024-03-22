@@ -22,7 +22,7 @@ public partial class MainWindow : Window
 			menuItems[i] = new MenuItem();
 			if (i >= 3)
 			{
-				menuItems[i].Breads = new string[] { "zwykły rogal", "rogal cebulowy", "rogal z pumpernikla", " rogal z wszystkim" };
+				menuItems[i].Breads = ["zwykły rogal", "rogal cebulowy", "rogal z pumpernikla", " rogal z wszystkim"];
 			}
 			menuItems[i].Generate();
 		}
@@ -39,9 +39,9 @@ public partial class MainWindow : Window
 
 		MenuItem specialMenuItem = new()
 		{
-			Proteins = new string[] { "Szynka organiczna", "Burger z grzybów", " Mortadella" },
-			Breads = new string[] { "bułka bezglutenowa", "tortilla", "pita" },
-			Condiments = new string[] { "musztarda diżońska", "sos z miso", "au jus" }
+			Proteins = ["Szynka organiczna", "Burger z grzybów", " Mortadella"],
+			Breads = ["bułka bezglutenowa", "tortilla", "pita"],
+			Condiments = ["musztarda diżońska", "sos z miso", "au jus"]
 		};
 		specialMenuItem.Generate();
 		Item6.Text = specialMenuItem.Description;

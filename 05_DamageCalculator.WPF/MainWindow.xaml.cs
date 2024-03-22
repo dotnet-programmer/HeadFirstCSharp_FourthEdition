@@ -8,8 +8,8 @@ namespace DamageCalculator.WPF;
 /// </summary>
 public partial class MainWindow : Window
 {
-	private readonly Random random = new();
-	private readonly SwordDamage swordDamage = new();
+	private readonly Random _random = new();
+	private readonly SwordDamage _swordDamage = new();
 
 	public MainWindow()
 	{
@@ -17,24 +17,27 @@ public partial class MainWindow : Window
 		RollDice();
 	}
 
-	private void BtnRollDice_Click(object sender, RoutedEventArgs e) => RollDice();
-
 	public void RollDice()
 	{
-		swordDamage.Roll = random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7);
+		_swordDamage.Roll = _random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7);
 		SetDamage();
 	}
 
-	private void CheckBox_Changed(object sender, RoutedEventArgs e) => SetDamage();
+	private void BtnRollDice_Click(object sender, RoutedEventArgs e)
+		=> RollDice();
+
+	private void CheckBox_Changed(object sender, RoutedEventArgs e)
+		=> SetDamage();
 
 	private void SetDamage()
 	{
-		swordDamage.SetMagic(ChIsMagic.IsChecked.Value);
-		swordDamage.SetFlaming(ChIsFlaming.IsChecked.Value);
-		swordDamage.CalculateDamage();
+		_swordDamage.SetMagic(ChIsMagic.IsChecked.Value);
+		_swordDamage.SetFlaming(ChIsFlaming.IsChecked.Value);
+		_swordDamage.CalculateDamage();
 
 		DisplayDamage();
 	}
 
-	private void DisplayDamage() => TxtDisplayDamage.Text = "Rzut: " + swordDamage.Roll + ", punkty obrażeń: " + swordDamage.Damage;
+	private void DisplayDamage()
+		=> TxtDisplayDamage.Text = "Rzut: " + _swordDamage.Roll + ", punkty obrażeń: " + _swordDamage.Damage;
 }

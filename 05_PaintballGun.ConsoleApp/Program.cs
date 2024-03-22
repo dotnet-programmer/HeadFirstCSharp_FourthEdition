@@ -3,7 +3,7 @@
 int numberOfBalls = ReadInt(20, "Liczba kulek");
 int magazineSize = ReadInt(16, "Pojemność magazynka");
 Console.Write($"Załadowany[false]: ");
-bool.TryParse(Console.ReadLine(), out bool isLoaded);
+_ = bool.TryParse(Console.ReadLine(), out bool isLoaded);
 
 //PaintballGunClass gun = new();
 PaintballGunClass gun = new(numberOfBalls, magazineSize, isLoaded);
