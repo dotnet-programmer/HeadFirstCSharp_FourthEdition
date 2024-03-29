@@ -17,24 +17,23 @@ public partial class MainWindow : Window
 		RollDice();
 	}
 
-	public void RollDice()
-	{
-		_swordDamage.Roll = _random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7);
-		SetDamage();
-	}
-
 	private void BtnRollDice_Click(object sender, RoutedEventArgs e)
 		=> RollDice();
 
 	private void CheckBox_Changed(object sender, RoutedEventArgs e)
 		=> SetDamage();
 
+	private void RollDice()
+	{
+		_swordDamage.Roll = _random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7);
+		SetDamage();
+	}
+
 	private void SetDamage()
 	{
 		_swordDamage.SetMagic(ChIsMagic.IsChecked.Value);
 		_swordDamage.SetFlaming(ChIsFlaming.IsChecked.Value);
 		_swordDamage.CalculateDamage();
-
 		DisplayDamage();
 	}
 

@@ -45,10 +45,10 @@ internal class PaintballGunClass
 		}
 	}
 
-	public bool IsEmpty() 
+	public bool IsEmpty()
 		=> BallsLoaded == 0;
 
-	public void Reload() 
+	public void Reload()
 		=> BallsLoaded = _balls > MagazineSize ? MagazineSize : _balls;
 
 	public bool Shoot()

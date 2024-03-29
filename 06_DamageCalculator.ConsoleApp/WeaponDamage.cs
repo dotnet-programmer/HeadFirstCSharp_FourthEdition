@@ -3,8 +3,8 @@
 internal class WeaponDamage
 {
 	private int _roll;
-	private bool _magic;
-	private bool _flaming;
+	private bool _isMagic;
+	private bool _isFlaming;
 
 	public WeaponDamage(int startingRoll)
 	{
@@ -22,22 +22,22 @@ internal class WeaponDamage
 		}
 	}
 
-	public bool Magic
+	public bool IsMagic
 	{
-		get => _magic;
+		get => _isMagic;
 		set
 		{
-			_magic = value;
+			_isMagic = value;
 			CalculateDamage();
 		}
 	}
 
-	public bool Flaming
+	public bool IsFlaming
 	{
-		get => _flaming;
+		get => _isFlaming;
 		set
 		{
-			_flaming = value;
+			_isFlaming = value;
 			CalculateDamage();
 		}
 	}

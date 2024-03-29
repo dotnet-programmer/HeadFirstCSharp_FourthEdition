@@ -73,7 +73,7 @@ public partial class MainWindow : Window
 		}
 	}
 
-	private void ListBoxLeftDeck_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+	private void ListBoxLeftDeck_KeyDown(object sender, KeyEventArgs e)
 	{
 		if (e.Key == Key.Enter)
 		{
@@ -81,10 +81,10 @@ public partial class MainWindow : Window
 		}
 	}
 
-	private void ListBoxLeftDeck_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e) 
+	private void ListBoxLeftDeck_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		=> MoveCard(true);
 
-	private void ListBoxRightDeck_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+	private void ListBoxRightDeck_KeyDown(object sender, KeyEventArgs e)
 	{
 		if (e.Key == Key.Enter)
 		{
@@ -92,6 +92,6 @@ public partial class MainWindow : Window
 		}
 	}
 
-	private void ListBoxRightDeck_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e) 
+	private void ListBoxRightDeck_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		=> MoveCard(false);
 }

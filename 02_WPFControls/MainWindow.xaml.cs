@@ -17,12 +17,10 @@ public partial class MainWindow : Window
 
 	private void TbNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
 	{
-		if (!int.TryParse(e.Text, out int result))
+		if (!int.TryParse(e.Text, out _))
 		{
 			e.Handled = e.Text != "," || tbShowNumber.Text.Contains(',');
 		}
-
-		//e.Handled = (!int.TryParse(e.Text, out int result));
 	}
 
 	private void SmallSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

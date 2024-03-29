@@ -14,43 +14,43 @@ public partial class MainWindow : Window
 	public MainWindow()
 	{
 		InitializeComponent();
-		_swordDamage = new SwordDamage(_random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7));
+		_swordDamage = new SwordDamage(RollDice());
 		DisplayDamage();
 	}
 
-	public void RollDice()
+	private void Button_Click(object sender, RoutedEventArgs e)
 	{
-		_swordDamage.Roll = _random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7);
+		_swordDamage.Roll = RollDice();
 		DisplayDamage();
 	}
-
-	private void DisplayDamage() 
-		=> TxtDisplayDamage.Text = $"Rzut: {_swordDamage.Roll}, punkty obrażeń: {_swordDamage.Damage}";
-
-	private void Button_Click(object sender, RoutedEventArgs e) 
-		=> RollDice();
 
 	private void Flaming_Checked(object sender, RoutedEventArgs e)
 	{
-		_swordDamage.Flaming = true;
+		_swordDamage.IsFlaming = true;
 		DisplayDamage();
 	}
 
 	private void Flaming_Unchecked(object sender, RoutedEventArgs e)
 	{
-		_swordDamage.Flaming = false;
+		_swordDamage.IsFlaming = false;
 		DisplayDamage();
 	}
 
 	private void Magic_Checked(object sender, RoutedEventArgs e)
 	{
-		_swordDamage.Magic = true;
+		_swordDamage.IsMagic = true;
 		DisplayDamage();
 	}
 
 	private void Magic_Unchecked(object sender, RoutedEventArgs e)
 	{
-		_swordDamage.Magic = false;
+		_swordDamage.IsMagic = false;
 		DisplayDamage();
 	}
+
+	private int RollDice()
+		=> _random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7);
+
+	private void DisplayDamage()
+		=> TxtDisplayDamage.Text = $"Rzut: {_swordDamage.Roll}, punkty obrażeń: {_swordDamage.Damage}";
 }

@@ -20,16 +20,16 @@ while (true)
 	{
 		case 'M':
 			swordDamage.Roll = RollDice(3);
-			swordDamage.Magic = (key is '1' or '3');
-			swordDamage.Flaming = (key is '2' or '3');
+			swordDamage.IsMagic = (key is '1' or '3');
+			swordDamage.IsFlaming = (key is '2' or '3');
 			Console.WriteLine(
 			$"\nRzut {swordDamage.Roll}, punkty obrażeń {swordDamage.Damage} \n");
 			break;
 
 		case 'S':
 			arrowDamage.Roll = RollDice(1);
-			arrowDamage.Magic = (key is '1' or '3');
-			arrowDamage.Flaming = (key is '2' or '3');
+			arrowDamage.IsMagic = (key is '1' or '3');
+			arrowDamage.IsFlaming = (key is '2' or '3');
 			Console.WriteLine(
 			$"\nRzut: {arrowDamage.Roll}, punkty obrażeń {arrowDamage.Damage}\n");
 			break;

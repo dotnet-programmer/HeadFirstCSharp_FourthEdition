@@ -4,7 +4,7 @@ while (true)
 {
 	Bird bird;
 	Console.Write("\nWciśnij G(gołąb) lub S(struś): ");
-	char key = Char.ToUpper(Console.ReadKey().KeyChar);
+	char key = char.ToUpper(Console.ReadKey().KeyChar);
 	if (key == 'G')
 	{
 		bird = new Pigeon();

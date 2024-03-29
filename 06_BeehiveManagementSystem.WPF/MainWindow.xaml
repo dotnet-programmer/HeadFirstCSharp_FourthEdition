@@ -1,11 +1,13 @@
 ﻿<Window x:Class="BeehiveManagementSystem.WPF.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BeehiveManagementSystem.WPF"
-        mc:Ignorable="d"
-        Title="System zarządzania rojem" Height="325" Width="625">
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:BeehiveManagementSystem.WPF"
+		mc:Ignorable="d"
+		Title="System zarządzania rojem"
+		Height="325"
+		Width="625">
 
 	<Window.Resources>
 		<local:Queen x:Key="queen" />
@@ -22,20 +24,51 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 
-		<Label Grid.Row="0" Grid.Column="0" Content="Przydzielane funkcje" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
-		<Label Grid.Row="0" Grid.Column="1" Content="Raport dla królowej" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+		<Label Grid.Row="0"
+			   Grid.Column="0"
+			   Content="Przydzielane funkcje"
+			   FontSize="18"
+			   HorizontalAlignment="Center"
+			   VerticalAlignment="Bottom" />
+		
+		<Label Grid.Row="0"
+			   Grid.Column="1"
+			   Content="Raport dla królowej"
+			   FontSize="18"
+			   HorizontalAlignment="Center"
+			   VerticalAlignment="Bottom" />
 
-		<StackPanel Grid.Row="1" Grid.Column="0" Margin="20">
-			<ComboBox x:Name="JobSelector" FontSize="18" SelectedIndex="0" HorizontalContentAlignment="Center">
+		<StackPanel Grid.Row="1"
+					Grid.Column="0"
+					Margin="20">
+			<ComboBox x:Name="JobSelector"
+					  FontSize="18"
+					  SelectedIndex="0"
+					  HorizontalContentAlignment="Center">
 				<ComboBoxItem Content="Zbieraczka nektaru" />
 				<ComboBoxItem Content="Producentka miodu" />
 				<ComboBoxItem Content="Opiekunka jaj" />
 			</ComboBox>
-			<Button x:Name="BtnAssignJob" Content="Przydziel funkcję pszczole" FontSize="18" Margin="0,20,0,0" Click="BtnAssignJob_Click" />
+			<Button x:Name="BtnAssignJob"
+					Content="Przydziel funkcję pszczole"
+					FontSize="18"
+					Margin="0,20,0,0"
+					Click="BtnAssignJob_Click" />
 		</StackPanel>
 
-		<TextBox x:Name="TxtStatusReport" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="20" IsReadOnly="True" Text="{Binding StatusReport, Mode=OneWay}" />
+		<TextBox x:Name="TxtStatusReport"
+				 Grid.Row="1"
+				 Grid.Column="1"
+				 Grid.RowSpan="2"
+				 Margin="20"
+				 IsReadOnly="True"
+				 Text="{Binding StatusReport, Mode=OneWay}" />
 
-		<Button x:Name="BtnNextShift" Grid.Row="2" Grid.Column="0" Content="Następna zmiana" Margin="20" Click="BtnNextShift_Click" />
+		<Button x:Name="BtnNextShift"
+				Grid.Row="2"
+				Grid.Column="0"
+				Content="Następna zmiana"
+				Margin="20"
+				Click="BtnNextShift_Click" />
 	</Grid>
 </Window>

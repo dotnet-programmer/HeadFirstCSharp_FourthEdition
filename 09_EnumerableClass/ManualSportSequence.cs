@@ -4,9 +4,9 @@ namespace EnumerableClass;
 
 internal class ManualSportSequence : IEnumerable<Sport>
 {
-	public IEnumerator<Sport> GetEnumerator() 
+	public IEnumerator<Sport> GetEnumerator()
 		=> new ManualSportEnumerator();
 
-	IEnumerator IEnumerable.GetEnumerator() 
+	IEnumerator IEnumerable.GetEnumerator()
 		=> GetEnumerator();
 }

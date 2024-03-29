@@ -4,7 +4,7 @@ public class Opponent(string name)
 {
 	public readonly string Name = name;
 
-	public override string ToString() 
+	public override string ToString()
 		=> Name;
 
 	public Location Hide()

@@ -9,11 +9,14 @@ internal class ArrowDamage(int startingRoll) : WeaponDamage(startingRoll)
 	protected override void CalculateDamage()
 	{
 		decimal baseDamage = Roll * BASE_MULTIPLIER;
-		if (Magic)
+		if (IsMagic)
 		{
 			baseDamage *= MAGIC_MULTIPLIER;
 		}
-
-		Damage = Flaming ? (int)Math.Ceiling(baseDamage + FLAME_DAMAGE) : (int)Math.Ceiling(baseDamage);
+		if (IsFlaming)
+		{
+			baseDamage += FLAME_DAMAGE;
+		}
+		Damage = (int)Math.Ceiling(baseDamage);
 	}
 }

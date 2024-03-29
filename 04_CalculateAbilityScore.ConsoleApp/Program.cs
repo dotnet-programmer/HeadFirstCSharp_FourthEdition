@@ -30,10 +30,9 @@ while (true)
 static int ReadInt(int lastUsedValue, string prompt)
 {
 	// Wyświetlanie informacji i [wartości domyślnej]:
-	// Wczytywanie wiersza danych wyjściowych i używanie int.TryParse do próby
-	// ich przetworzenia. Jeśli jest to możliwe, wyświetlanie w konsoli
-	// ” użycie wartości ” + value. W przeciwnym razie wyświetlanie w konsoli
-	// ” użycie wartości domyślnej ” + lastUsedValue.
+	// Wczytywanie wiersza danych wyjściowych i używanie int.TryParse do próby ich przetworzenia.
+	// Jeśli jest to możliwe, wyświetlanie w konsoli ” użycie wartości ” + value.
+	// W przeciwnym razie wyświetlanie w konsoli ” użycie wartości domyślnej ” + lastUsedValue.
 
 	Console.Write(prompt + " [" + lastUsedValue + "]: ");
 	string line = Console.ReadLine();

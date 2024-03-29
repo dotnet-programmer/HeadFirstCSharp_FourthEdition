@@ -5,7 +5,10 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:WPFControls"
 		mc:Ignorable="d"
-		Title="Eksperymenty z kontrolkami" Height="450" Width="800">
+		Title="Eksperymenty z kontrolkami"
+		Height="450"
+		Width="800">
+	
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="1*" />
@@ -18,14 +21,31 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-		<TextBlock x:Name="tbShowNumber" Grid.Column="2" Text="Liczba" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" />
+		<TextBlock x:Name="tbShowNumber"
+				   Grid.Row="0"
+				   Grid.Column="2"
+				   Text="Liczba"
+				   FontSize="24"
+				   HorizontalAlignment="Center"
+				   VerticalAlignment="Center"
+				   TextWrapping="Wrap" />
 
-		<StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-			<Label FontSize="18" Content="Wpisz liczbę:" />
-			<TextBox x:Name="tbNumber" FontSize="18" Text="0" TextChanged="TbNumber_TextChanged" PreviewTextInput="TbNumber_PreviewTextInput" />
+		<StackPanel Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center">
+			<Label FontSize="18"
+				   Content="Wpisz liczbę:" />
+			<TextBox x:Name="tbNumber"
+					 FontSize="18"
+					 Text="0"
+					 TextChanged="TbNumber_TextChanged"
+					 PreviewTextInput="TbNumber_PreviewTextInput" />
 		</StackPanel>
 
-		<Grid Grid.Row="0" Grid.Column="1" Margin="40">
+		<Grid Grid.Row="0"
+			  Grid.Column="1"
+			  Margin="40">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition />
@@ -36,15 +56,56 @@
 				<RowDefinition />
 			</Grid.RowDefinitions>
 
-			<RadioButton Grid.Row="0" Grid.Column="0" Content="1" FontSize="18" Checked="RadioButton_Checked" HorizontalAlignment="Center" VerticalAlignment="Center" />
-			<RadioButton Grid.Row="0" Grid.Column="1" Content="2" FontSize="18" Checked="RadioButton_Checked" HorizontalAlignment="Center" VerticalAlignment="Center" />
-			<RadioButton Grid.Row="0" Grid.Column="2" Content="3" FontSize="18" Checked="RadioButton_Checked" HorizontalAlignment="Center" VerticalAlignment="Center" />
-			<RadioButton Grid.Row="1" Grid.Column="0" Content="4" FontSize="18" Checked="RadioButton_Checked" HorizontalAlignment="Center" VerticalAlignment="Center" />
-			<RadioButton Grid.Row="1" Grid.Column="1" Content="5" FontSize="18" Checked="RadioButton_Checked" HorizontalAlignment="Center" VerticalAlignment="Center" />
-			<RadioButton Grid.Row="1" Grid.Column="2" Content="6" FontSize="18" Checked="RadioButton_Checked" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<RadioButton Grid.Row="0"
+						 Grid.Column="0"
+						 Content="1"
+						 FontSize="18"
+						 Checked="RadioButton_Checked"
+						 HorizontalAlignment="Center"
+						 VerticalAlignment="Center" />
+			<RadioButton Grid.Row="0"
+						 Grid.Column="1"
+						 Content="2"
+						 FontSize="18"
+						 Checked="RadioButton_Checked"
+						 HorizontalAlignment="Center"
+						 VerticalAlignment="Center" />
+			<RadioButton Grid.Row="0"
+						 Grid.Column="2"
+						 Content="3"
+						 FontSize="18"
+						 Checked="RadioButton_Checked"
+						 HorizontalAlignment="Center"
+						 VerticalAlignment="Center" />
+			<RadioButton Grid.Row="1"
+						 Grid.Column="0"
+						 Content="4"
+						 FontSize="18"
+						 Checked="RadioButton_Checked"
+						 HorizontalAlignment="Center"
+						 VerticalAlignment="Center" />
+			<RadioButton Grid.Row="1"
+						 Grid.Column="1"
+						 Content="5"
+						 FontSize="18"
+						 Checked="RadioButton_Checked"
+						 HorizontalAlignment="Center"
+						 VerticalAlignment="Center" />
+			<RadioButton Grid.Row="1"
+						 Grid.Column="2"
+						 Content="6"
+						 FontSize="18"
+						 Checked="RadioButton_Checked"
+						 HorizontalAlignment="Center"
+						 VerticalAlignment="Center" />
 		</Grid>
 
-		<ListBox x:Name="MyListBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="20" SelectionChanged="MyListBox_SelectionChanged">
+		<ListBox x:Name="MyListBox"
+				 Grid.Row="1"
+				 Grid.Column="0"
+				 Grid.ColumnSpan="2"
+				 Margin="20"
+				 SelectionChanged="MyListBox_SelectionChanged">
 			<ListBoxItem Content="1" />
 			<ListBoxItem Content="2" />
 			<ListBoxItem Content="3" />
@@ -52,15 +113,31 @@
 			<ListBoxItem Content="5" />
 		</ListBox>
 
-		<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-			<ComboBox x:Name="ReadOnlyComboBox" Width="110" Height="25" Margin="0,0,20,0" SelectedIndex="0" SelectionChanged="ReadOnlyComboBox_SelectionChanged">
+		<StackPanel Orientation="Horizontal"
+					Grid.Row="1"
+					Grid.Column="3"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center">
+			<ComboBox x:Name="ReadOnlyComboBox"
+					  Width="110"
+					  Height="25"
+					  Margin="0,0,20,0"
+					  SelectedIndex="0"
+					  SelectionChanged="ReadOnlyComboBox_SelectionChanged">
 				<ComboBoxItem Content="1" />
 				<ComboBoxItem Content="2" />
 				<ComboBoxItem Content="3" />
 				<ComboBoxItem Content="4" />
 				<ComboBoxItem Content="5" />
 			</ComboBox>
-			<ComboBox x:Name="EditableComboBox" Width="110" Height="25" Margin="20,0,0,0" IsEditable="True" SelectedIndex="0" PreviewTextInput="TbNumber_PreviewTextInput" TextBoxBase.TextChanged="EditableComboBox_TextChanged">
+			<ComboBox x:Name="EditableComboBox"
+					  Width="110"
+					  Height="25"
+					  Margin="20,0,0,0"
+					  IsEditable="True"
+					  SelectedIndex="0"
+					  PreviewTextInput="TbNumber_PreviewTextInput"
+					  TextBoxBase.TextChanged="EditableComboBox_TextChanged">
 				<ListBoxItem Content="1" />
 				<ListBoxItem Content="2" />
 				<ListBoxItem Content="3" />
@@ -69,9 +146,24 @@
 			</ComboBox>
 		</StackPanel>
 
-		<StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
-			<Slider x:Name="SmallSlider" AutoToolTipPlacement="BottomRight" Minimum="1" Maximum="5" ValueChanged="SmallSlider_ValueChanged" Width="100" HorizontalAlignment="Left" Margin="10" />
-			<Slider x:Name="BigSlider" AutoToolTipPlacement="TopLeft" Minimum="111111111" Maximum="999999999" Value="700770880" ValueChanged="BigSlider_ValueChanged" Margin="10" />
+		<StackPanel Grid.Row="2"
+					Grid.Column="0"
+					Grid.ColumnSpan="3">
+			<Slider x:Name="SmallSlider"
+					AutoToolTipPlacement="BottomRight"
+					Minimum="1"
+					Maximum="5"
+					ValueChanged="SmallSlider_ValueChanged"
+					Width="100"
+					HorizontalAlignment="Left"
+					Margin="10" />
+			<Slider x:Name="BigSlider"
+					AutoToolTipPlacement="TopLeft"
+					Minimum="111111111"
+					Maximum="999999999"
+					Value="700770880"
+					ValueChanged="BigSlider_ValueChanged"
+					Margin="10" />
 		</StackPanel>
 	</Grid>
 </Window>

@@ -23,7 +23,7 @@ internal class Queen : Bee, INotifyPropertyChanged
 
 	public string StatusReport { get; private set; }
 
-	public override float CostPerShift 
+	public override float CostPerShift
 		=> 2.15f;
 
 	public void AssignBee(string job)
@@ -54,7 +54,7 @@ internal class Queen : Bee, INotifyPropertyChanged
 		}
 	}
 
-	protected void OnPropertyChanged(string name) 
+	protected void OnPropertyChanged(string name)
 		=> PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
 	protected override void DoJob()

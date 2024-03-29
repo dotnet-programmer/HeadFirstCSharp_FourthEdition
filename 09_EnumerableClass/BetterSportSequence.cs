@@ -16,6 +16,6 @@ internal class BetterSportSequence : IEnumerable<Sport>
 		}
 	}
 
-	IEnumerator IEnumerable.GetEnumerator() 
+	IEnumerator IEnumerable.GetEnumerator()
 		=> GetEnumerator();
 }

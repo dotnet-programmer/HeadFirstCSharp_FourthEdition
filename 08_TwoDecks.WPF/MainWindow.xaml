@@ -1,11 +1,14 @@
 ﻿<Window x:Class="TwoDecks.WPF.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TwoDecks.WPF"
-        mc:Ignorable="d"
-        Title="Two Decks" Height="450" Width="400" WindowStartupLocation="CenterScreen">
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:TwoDecks.WPF"
+		mc:Ignorable="d"
+		Title="Two Decks"
+		Height="450"
+		Width="400"
+		WindowStartupLocation="CenterScreen">
 
 	<Window.Resources>
 		<local:Deck x:Key="leftDeck" />
@@ -24,16 +27,61 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 
-		<Label x:Name="LabelDeck1" Grid.Row="0" Grid.Column="0" Content="Deck _1" Margin="10,0,0,0" Target="{Binding ElementName=ListBoxLeftDeck, Mode=OneWay}" />
-		<Label x:Name="LabelDeck2" Grid.Row="0" Grid.Column="1" Content="Deck _2" Target="{Binding ElementName=ListBoxRightDeck, Mode=OneWay}" />
+		<Label x:Name="LabelDeck1"
+			   Grid.Row="0"
+			   Grid.Column="0"
+			   Content="Deck _1"
+			   Margin="10,0,0,0"
+			   Target="{Binding ElementName=ListBoxLeftDeck, Mode=OneWay}" />
+		
+		<Label x:Name="LabelDeck2"
+			   Grid.Row="0"
+			   Grid.Column="1"
+			   Content="Deck _2"
+			   Target="{Binding ElementName=ListBoxRightDeck, Mode=OneWay}" />
 
-		<ListBox x:Name="ListBoxLeftDeck" Grid.Row="1" Grid.Column="0" Margin="10,5,10,5" ItemsSource="{DynamicResource leftDeck}" KeyDown="ListBoxLeftDeck_KeyDown" MouseDoubleClick="ListBoxLeftDeck_MouseDoubleClick" />
-		<ListBox x:Name="ListBoxRightDeck" Grid.Row="1" Grid.Column="1" Margin="10,5,10,5" ItemsSource="{DynamicResource rightDeck}" KeyDown="ListBoxRightDeck_KeyDown" MouseDoubleClick="ListBoxRightDeck_MouseDoubleClick" />
+		<ListBox x:Name="ListBoxLeftDeck"
+				 Grid.Row="1"
+				 Grid.Column="0"
+				 Margin="10,5,10,5"
+				 ItemsSource="{DynamicResource leftDeck}"
+				 KeyDown="ListBoxLeftDeck_KeyDown"
+				 MouseDoubleClick="ListBoxLeftDeck_MouseDoubleClick" />
+		
+		<ListBox x:Name="ListBoxRightDeck"
+				 Grid.Row="1"
+				 Grid.Column="1"
+				 Margin="10,5,10,5"
+				 ItemsSource="{DynamicResource rightDeck}"
+				 KeyDown="ListBoxRightDeck_KeyDown"
+				 MouseDoubleClick="ListBoxRightDeck_MouseDoubleClick" />
 
-		<Button x:Name="BtnShuffleLeftDeck" Grid.Row="2" Grid.Column="0" Content="_Shuffle" Margin="10,5,10,5" Click="BtnShuffleLeftDeck_Click" />
-		<Button x:Name="BtnClearRightDeck" Grid.Row="2" Grid.Column="1" Content="_Clear" Margin="10,5,10,5" Click="BtnClearRightDeck_Click" />
+		<Button x:Name="BtnShuffleLeftDeck"
+				Grid.Row="2"
+				Grid.Column="0"
+				Content="_Shuffle"
+				Margin="10,5,10,5"
+				Click="BtnShuffleLeftDeck_Click" />
+		
+		<Button x:Name="BtnClearRightDeck"
+				Grid.Row="2"
+				Grid.Column="1"
+				Content="_Clear"
+				Margin="10,5,10,5"
+				Click="BtnClearRightDeck_Click" />
 
-		<Button x:Name="BtnResetLeftDeck" Grid.Row="3" Grid.Column="0" Content="_Reset" Margin="10,5,10,10" Click="BtnResetLeftDeck_Click" />
-		<Button x:Name="BtnSortRightDeck" Grid.Row="3" Grid.Column="1" Content="Sor_t" Margin="10,5,10,10" Click="BtnSortRightDeck_Click" />
+		<Button x:Name="BtnResetLeftDeck"
+				Grid.Row="3"
+				Grid.Column="0"
+				Content="_Reset"
+				Margin="10,5,10,10"
+				Click="BtnResetLeftDeck_Click" />
+		
+		<Button x:Name="BtnSortRightDeck"
+				Grid.Row="3"
+				Grid.Column="1"
+				Content="Sor_t"
+				Margin="10,5,10,10"
+				Click="BtnSortRightDeck_Click" />
 	</Grid>
 </Window>

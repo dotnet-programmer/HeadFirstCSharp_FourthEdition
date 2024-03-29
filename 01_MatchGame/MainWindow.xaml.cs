@@ -13,10 +13,10 @@ namespace MatchGame;
 /// </summary>
 public partial class MainWindow : Window
 {
+	private readonly DispatcherTimer _timer = new();
+
 	private TextBlock? _lastTextBlockClicked;
 	private bool _findingMatch = false;
-
-	private readonly DispatcherTimer _timer = new();
 	private int _tenthsOfSecondsElapsed;
 	private int _matchesFound;
 
@@ -25,6 +25,55 @@ public partial class MainWindow : Window
 		InitializeComponent();
 		SetTimer();
 		SetUpGame();
+	}
+
+	private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+	{
+		TextBlock textBlock = sender as TextBlock;
+
+		if (!_findingMatch)
+		{
+			textBlock.Visibility = Visibility.Hidden;
+			_lastTextBlockClicked = textBlock;
+			_findingMatch = true;
+		}
+		else if (textBlock.Text == _lastTextBlockClicked.Text)
+		{
+			textBlock.Visibility = Visibility.Hidden;
+			_findingMatch = false;
+			_matchesFound++;
+		}
+		else
+		{
+			_lastTextBlockClicked.Visibility = Visibility.Visible;
+			_findingMatch = false;
+		}
+	}
+
+	private void TimerTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+	{
+		if (_matchesFound == 8)
+		{
+			SetUpGame();
+		}
+	}
+
+	private void SetTimer()
+	{
+		_timer.Interval = TimeSpan.FromSeconds(.1);
+		_timer.Tick += Timer_Tick;
+	}
+
+	private void Timer_Tick(object? sender, EventArgs e)
+	{
+		_tenthsOfSecondsElapsed++;
+		TimerTextBlock.Text = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");
+
+		if (_matchesFound == 8)
+		{
+			_timer.Stop();
+			TimerTextBlock.Text += " - Jeszcze raz?";
+		}
 	}
 
 	private void SetUpGame()
@@ -57,59 +106,10 @@ public partial class MainWindow : Window
 		StartTimer();
 	}
 
-	private void SetTimer()
-	{
-		_timer.Interval = TimeSpan.FromSeconds(.1);
-		_timer.Tick += Timer_Tick;
-	}
-
 	private void StartTimer()
 	{
-		_timer.Start();
 		_tenthsOfSecondsElapsed = 0;
 		_matchesFound = 0;
-	}
-
-	private void Timer_Tick(object? sender, EventArgs e)
-	{
-		_tenthsOfSecondsElapsed++;
-		TimerTextBlock.Text = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");
-
-		if (_matchesFound == 8)
-		{
-			_timer.Stop();
-			TimerTextBlock.Text += " - Jeszcze raz?";
-		}
-	}
-
-	private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-	{
-		TextBlock textBlock = sender as TextBlock;
-
-		if (!_findingMatch)
-		{
-			textBlock.Visibility = Visibility.Hidden;
-			_lastTextBlockClicked = textBlock;
-			_findingMatch = true;
-		}
-		else if (textBlock.Text == _lastTextBlockClicked.Text)
-		{
-			textBlock.Visibility = Visibility.Hidden;
-			_findingMatch = false;
-			_matchesFound++;
-		}
-		else
-		{
-			_lastTextBlockClicked.Visibility = Visibility.Visible;
-			_findingMatch = false;
-		}
-	}
-
-	private void TimerTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-	{
-		if (_matchesFound == 8)
-		{
-			SetUpGame();
-		}
+		_timer.Start();
 	}
 }

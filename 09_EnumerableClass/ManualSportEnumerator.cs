@@ -6,15 +6,15 @@ internal class ManualSportEnumerator : IEnumerator<Sport>
 {
 	private int _current = -1;
 
-	public Sport Current 
+	public Sport Current
 		=> (Sport)_current;
 
-	object IEnumerator.Current 
+	object IEnumerator.Current
 		=> Current;
 
 	public void Dispose()
-	{ 
-		return; 
+	{
+		return;
 	}
 
 	public bool MoveNext()
@@ -29,6 +29,6 @@ internal class ManualSportEnumerator : IEnumerator<Sport>
 		return true;
 	}
 
-	public void Reset() 
+	public void Reset()
 		=> _current = 0;
 }

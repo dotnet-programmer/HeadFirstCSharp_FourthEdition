@@ -13,6 +13,6 @@ internal class PowersOfTwo : IEnumerable<int>
 		}
 	}
 
-	IEnumerator IEnumerable.GetEnumerator() 
+	IEnumerator IEnumerable.GetEnumerator()
 		=> GetEnumerator();
 }

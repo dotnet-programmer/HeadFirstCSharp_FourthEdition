@@ -13,10 +13,10 @@ while (true)
 	}
 
 	swordDamage.Roll = RollDice();
-	swordDamage.Magic = (key is '1' or '3');
-	swordDamage.Flaming = (key is '2' or '3');
+	swordDamage.IsMagic = (key is '1' or '3');
+	swordDamage.IsFlaming = (key is '2' or '3');
 	Console.WriteLine($"\nRzut: {swordDamage.Roll}, punkty obrażeń: {swordDamage.Damage}\n");
 }
 
-int RollDice() 
+int RollDice()
 	=> random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7);
