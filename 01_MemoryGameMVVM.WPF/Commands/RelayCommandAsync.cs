@@ -12,7 +12,7 @@ internal class RelayCommandAsync(Func<object, Task> execute, Func<object, bool> 
 
 	private long _isExecuting;
 
-	public event EventHandler? CanExecuteChanged
+	public event EventHandler CanExecuteChanged
 	{
 		add => CommandManager.RequerySuggested += value;
 		remove => CommandManager.RequerySuggested -= value;
@@ -21,10 +21,10 @@ internal class RelayCommandAsync(Func<object, Task> execute, Func<object, bool> 
 	public void RaiseCanExecuteChanged()
 		=> CommandManager.InvalidateRequerySuggested();
 
-	public bool CanExecute(object? parameter)
+	public bool CanExecute(object parameter)
 		=> Interlocked.Read(ref _isExecuting) == 0 && _canExecute(parameter);
 
-	public async void Execute(object? parameter)
+	public async void Execute(object parameter)
 	{
 		Interlocked.Exchange(ref _isExecuting, 1);
 		RaiseCanExecuteChanged();

@@ -7,7 +7,7 @@ public class StopwatchViewModel : INotifyPropertyChanged
 {
 	private readonly StopwatchModel _model = new();
 
-	public event PropertyChangedEventHandler? PropertyChanged;
+	public event PropertyChangedEventHandler PropertyChanged;
 
 	public string Hours 
 		=> _model.Elapsed.Hours.ToString("D2");

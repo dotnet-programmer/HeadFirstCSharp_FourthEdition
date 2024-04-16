@@ -20,7 +20,7 @@ internal class MainViewModel : BaseViewModel
 	private int _matchesFound;
 	private int _tenthsOfSecondsElapsed;
 	private bool _findingMatch;
-	private Button? _lastButton;
+	private Button _lastButton;
 
 	public MainViewModel(Grid mainGrid)
 	{
@@ -98,7 +98,7 @@ internal class MainViewModel : BaseViewModel
 		_timer.Tick += Timer_Tick;
 	}
 
-	private void Timer_Tick(object? sender, EventArgs e)
+	private void Timer_Tick(object sender, EventArgs e)
 	{
 		_tenthsOfSecondsElapsed++;
 		TimeElapsed = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");

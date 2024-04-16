@@ -19,7 +19,7 @@ internal class Queen : Bee, INotifyPropertyChanged
 		AssignBee("Opiekunka jaj");
 	}
 
-	public event PropertyChangedEventHandler? PropertyChanged;
+	public event PropertyChangedEventHandler PropertyChanged;
 
 	public string StatusReport { get; private set; }
 

@@ -37,7 +37,7 @@ internal class StopwatchView
 	/// <summary>
 	/// Callback to update the time display that the time calls each time it ticks
 	/// </summary>
-	private void UpdateTimeCallback(object? state)
+	private void UpdateTimeCallback(object state)
 	{
 		if (Console.KeyAvailable)
 		{

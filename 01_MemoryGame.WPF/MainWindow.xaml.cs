@@ -21,7 +21,7 @@ public partial class MainWindow : Window
 	private int _tenthsOfSecondsElapsed;
 	private int _matchesFound;
 	private bool _findingMatch;
-	private TextBlock? _lastTextBlock;
+	private TextBlock _lastTextBlock;
 
 	public MainWindow()
 	{
@@ -30,16 +30,15 @@ public partial class MainWindow : Window
 		SetUpGame();
 	}
 
-	private void Timer_Tick(object? sender, EventArgs e)
-	{
-		_tenthsOfSecondsElapsed++;
-		TimerText.Content = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");
-	}
-
 	private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
 	{
+		if (_matchesFound == 8)
+		{
+			return;
+		}
+		
 		TextBlock textBlock = sender as TextBlock;
-		int index = int.Parse(textBlock.Name.Substring(2));
+		int index = int.Parse(textBlock.Name[2..]);
 
 		if (!_findingMatch)
 		{
@@ -85,6 +84,12 @@ public partial class MainWindow : Window
 	{
 		_timer.Interval = TimeSpan.FromSeconds(.1);
 		_timer.Tick += Timer_Tick;
+	}
+
+	private void Timer_Tick(object sender, EventArgs e)
+	{
+		_tenthsOfSecondsElapsed++;
+		TimerText.Content = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");
 	}
 
 	private void SetUpGame()

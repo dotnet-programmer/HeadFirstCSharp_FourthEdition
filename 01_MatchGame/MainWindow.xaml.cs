@@ -15,8 +15,8 @@ public partial class MainWindow : Window
 {
 	private readonly DispatcherTimer _timer = new();
 
-	private TextBlock? _lastTextBlockClicked;
-	private bool _findingMatch = false;
+	private TextBlock _lastTextBlockClicked;
+	private bool _findingMatch;
 	private int _tenthsOfSecondsElapsed;
 	private int _matchesFound;
 
@@ -64,7 +64,7 @@ public partial class MainWindow : Window
 		_timer.Tick += Timer_Tick;
 	}
 
-	private void Timer_Tick(object? sender, EventArgs e)
+	private void Timer_Tick(object sender, EventArgs e)
 	{
 		_tenthsOfSecondsElapsed++;
 		TimerTextBlock.Text = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");

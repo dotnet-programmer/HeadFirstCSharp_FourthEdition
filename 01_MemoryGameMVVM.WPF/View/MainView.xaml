@@ -138,7 +138,7 @@
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseLeftButtonDown">
 					<i:InvokeCommandAction Command="{Binding RestartGameCommand}" />
-					</i:EventTrigger>
+				</i:EventTrigger>
 			</i:Interaction.Triggers>
 		</TextBlock>
 	</Grid>

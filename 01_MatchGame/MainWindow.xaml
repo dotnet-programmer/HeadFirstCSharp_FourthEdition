@@ -102,6 +102,7 @@
 				   Grid.Column="3"
 				   Text="?"
 				   MouseDown="TextBlock_MouseDown" />
+		
 		<TextBlock x:Name="TimerTextBlock"
 				   Grid.Row="4"
 				   Grid.Column="0"
