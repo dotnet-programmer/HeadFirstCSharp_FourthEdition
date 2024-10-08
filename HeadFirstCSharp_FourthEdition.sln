@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_MatchGame", "01_MatchGame\01_MatchGame.csproj", "{C788880D-48EA-4C1F-A2D8-76C5225D025A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_MatchGame.WPF", "01_MatchGame\01_MatchGame.WPF.csproj", "{C788880D-48EA-4C1F-A2D8-76C5225D025A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_MemoryGame.WPF", "01_MemoryGame.WPF\01_MemoryGame.WPF.csproj", "{3FB995AE-83C9-4C3A-8C7A-570B5C822E5F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_MemoryGameMVVM.WPF", "01_MemoryGameMVVM.WPF\01_MemoryGameMVVM.WPF.csproj", "{A5370071-2BB3-496B-B48C-89CAA578C219}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_WPFControls", "02_WPFControls\02_WPFControls.csproj", "{2DE83A19-933D-4A6D-BC26-2792722A3F35}"
 EndProject
@@ -63,6 +61,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVM_Stopwatch.ConsoleApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVM_Stopwatch.WPF", "MVVM_Stopwatch.WPF\MVVM_Stopwatch.WPF.csproj", "{02537075-FFF0-4925-B465-393A26F1A642}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_MatchGame.BlazorWebAssembly", "01_MatchGame.BlazorWebAssembly\01_MatchGame.BlazorWebAssembly.csproj", "{16532047-D3E8-4DD2-95F0-0ECD522E0A91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,10 +77,6 @@ Global
 		{3FB995AE-83C9-4C3A-8C7A-570B5C822E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FB995AE-83C9-4C3A-8C7A-570B5C822E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FB995AE-83C9-4C3A-8C7A-570B5C822E5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5370071-2BB3-496B-B48C-89CAA578C219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5370071-2BB3-496B-B48C-89CAA578C219}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5370071-2BB3-496B-B48C-89CAA578C219}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5370071-2BB3-496B-B48C-89CAA578C219}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2DE83A19-933D-4A6D-BC26-2792722A3F35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2DE83A19-933D-4A6D-BC26-2792722A3F35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DE83A19-933D-4A6D-BC26-2792722A3F35}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -189,6 +185,10 @@ Global
 		{02537075-FFF0-4925-B465-393A26F1A642}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02537075-FFF0-4925-B465-393A26F1A642}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02537075-FFF0-4925-B465-393A26F1A642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16532047-D3E8-4DD2-95F0-0ECD522E0A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16532047-D3E8-4DD2-95F0-0ECD522E0A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16532047-D3E8-4DD2-95F0-0ECD522E0A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16532047-D3E8-4DD2-95F0-0ECD522E0A91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

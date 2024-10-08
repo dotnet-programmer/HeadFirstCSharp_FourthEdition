@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,10 +18,11 @@ public partial class MainWindow : Window
 	private readonly Random _random = new();
 	private readonly List<string> _randomAnimals = [];
 
+	private TextBlock _lastTextBlockClicked;
 	private int _tenthsOfSecondsElapsed;
 	private int _matchesFound;
 	private bool _findingMatch;
-	private TextBlock _lastTextBlock;
+	private bool _isLocked;
 
 	public MainWindow()
 	{
@@ -30,45 +31,52 @@ public partial class MainWindow : Window
 		SetUpGame();
 	}
 
-	private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+	private async void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
 	{
-		if (_matchesFound == 8)
+		if (_matchesFound == 8 || _isLocked)
 		{
 			return;
 		}
 		
 		TextBlock textBlock = sender as TextBlock;
+		if (textBlock.Text != "?")
+		{
+			return;
+		}
+
 		int index = int.Parse(textBlock.Name[2..]);
 
 		if (!_findingMatch)
 		{
+			_lastTextBlockClicked = textBlock;
+			_lastTextBlockClicked.Text = _randomAnimals[index];
 			_findingMatch = true;
-			textBlock.Text = _randomAnimals[index];
-			_lastTextBlock = textBlock;
 		}
-		else if (textBlock != _lastTextBlock)
+		else if (textBlock != _lastTextBlockClicked)
 		{
 			textBlock.Text = _randomAnimals[index];
 			Dispatcher.Invoke(new Action(() => { }), DispatcherPriority.ContextIdle);
 
-			if (_lastTextBlock.Text == textBlock.Text)
+			if (textBlock.Text == _lastTextBlockClicked.Text)
 			{
-				_matchesFound++;
 				_findingMatch = false;
+				_matchesFound++;
 			}
 			else
 			{
-				Thread.Sleep(1000);
-				textBlock.Text = _lastTextBlock.Text = "?";
-				_findingMatch = false;
-				_lastTextBlock = null;
-			}
-		}
+				_isLocked = true;
+				await Task.Delay(1000);
+				_isLocked = false;
 
-		if (_matchesFound == 8)
-		{
-			_timer.Stop();
-			TimerText.Content += " - Play again?";
+				_findingMatch = false;
+				textBlock.Text = _lastTextBlockClicked.Text = "?";
+			}
+
+			if (_matchesFound == 8)
+			{
+				_timer.Stop();
+				TimerText.Content += " - Play again?";
+			}
 		}
 	}
 
@@ -90,6 +98,13 @@ public partial class MainWindow : Window
 	{
 		_tenthsOfSecondsElapsed++;
 		TimerText.Content = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");
+	}
+
+	private void StartTimer()
+	{
+		_tenthsOfSecondsElapsed = 0;
+		_matchesFound = 0;
+		_timer.Start();
 	}
 
 	private void SetUpGame()
@@ -117,12 +132,5 @@ public partial class MainWindow : Window
 		}
 
 		StartTimer();
-	}
-
-	private void StartTimer()
-	{
-		_tenthsOfSecondsElapsed = 0;
-		_matchesFound = 0;
-		_timer.Start();
 	}
 }

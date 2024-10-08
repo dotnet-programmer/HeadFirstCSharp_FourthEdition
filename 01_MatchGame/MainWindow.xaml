@@ -1,9 +1,8 @@
 ﻿<Window x:Class="MatchGame.MainWindow"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:local="clr-namespace:MatchGame"
 		mc:Ignorable="d"
 		Title="Znajdź wszystkie pary pasujących zwierząt"
 		Height="450"
@@ -20,6 +19,24 @@
 					Value="Center" />
 			<Setter Property="FontSize"
 					Value="36" />
+		</Style>
+
+		<Style x:Key="TextBlockStyle"
+			   TargetType="{x:Type TextBlock}"
+			   BasedOn="{StaticResource {x:Type TextBlock}}">
+			<Setter Property="Text"
+					Value="?" />
+			<EventSetter Event="MouseDown"
+						 Handler="TextBlock_MouseDown" />
+		</Style>
+
+		<Style x:Key="TimerBlockStyle"
+			   TargetType="{x:Type TextBlock}"
+			   BasedOn="{StaticResource {x:Type TextBlock}}">
+			<Setter Property="Text"
+					Value="Czas: " />
+			<EventSetter Event="MouseDown"
+						 Handler="TimerTextBlock_MouseDown" />
 		</Style>
 	</Window.Resources>
 
@@ -40,75 +57,57 @@
 
 		<TextBlock Grid.Row="0"
 				   Grid.Column="0"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="0"
 				   Grid.Column="1"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="0"
 				   Grid.Column="2"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="0"
 				   Grid.Column="3"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="1"
 				   Grid.Column="0"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="1"
 				   Grid.Column="1"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="1"
 				   Grid.Column="2"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="1"
 				   Grid.Column="3"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="2"
 				   Grid.Column="0"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="2"
 				   Grid.Column="1"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="2"
 				   Grid.Column="2"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="2"
 				   Grid.Column="3"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="3"
 				   Grid.Column="0"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="3"
 				   Grid.Column="1"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="3"
 				   Grid.Column="2"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
+				   Style="{StaticResource TextBlockStyle}" />
 		<TextBlock Grid.Row="3"
 				   Grid.Column="3"
-				   Text="?"
-				   MouseDown="TextBlock_MouseDown" />
-		
+				   Style="{StaticResource TextBlockStyle}" />
+
 		<TextBlock x:Name="TimerTextBlock"
 				   Grid.Row="4"
 				   Grid.Column="0"
 				   Grid.ColumnSpan="4"
-				   Text="Czas: "
-				   MouseDown="TimerTextBlock_MouseDown"
-				   TextAlignment="Center" />
+				   Style="{StaticResource TimerBlockStyle}" />
 	</Grid>
 </Window>

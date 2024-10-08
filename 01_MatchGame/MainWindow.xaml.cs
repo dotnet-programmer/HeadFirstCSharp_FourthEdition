@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Threading;
 
 namespace MatchGame;
 
@@ -13,103 +10,28 @@ namespace MatchGame;
 /// </summary>
 public partial class MainWindow : Window
 {
-	private readonly DispatcherTimer _timer = new();
-
-	private TextBlock _lastTextBlockClicked;
-	private bool _findingMatch;
-	private int _tenthsOfSecondsElapsed;
-	private int _matchesFound;
+	private readonly Game _game;
 
 	public MainWindow()
 	{
 		InitializeComponent();
-		SetTimer();
-		SetUpGame();
+		_game = new(MainGrid.Children.OfType<TextBlock>().Where(x => x.Name != nameof(TimerTextBlock)), TimerTextBlock, 0.1);
+		_game.StartNewGame();
 	}
 
 	private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
 	{
-		TextBlock textBlock = sender as TextBlock;
-
-		if (!_findingMatch)
+		if (sender is TextBlock textBlock)
 		{
-			textBlock.Visibility = Visibility.Hidden;
-			_lastTextBlockClicked = textBlock;
-			_findingMatch = true;
-		}
-		else if (textBlock.Text == _lastTextBlockClicked.Text)
-		{
-			textBlock.Visibility = Visibility.Hidden;
-			_findingMatch = false;
-			_matchesFound++;
-		}
-		else
-		{
-			_lastTextBlockClicked.Visibility = Visibility.Visible;
-			_findingMatch = false;
+			_game.FindMatch(textBlock);
 		}
 	}
 
 	private void TimerTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
 	{
-		if (_matchesFound == 8)
+		if (_game.IsGameOver)
 		{
-			SetUpGame();
+			_game.StartNewGame();
 		}
-	}
-
-	private void SetTimer()
-	{
-		_timer.Interval = TimeSpan.FromSeconds(.1);
-		_timer.Tick += Timer_Tick;
-	}
-
-	private void Timer_Tick(object sender, EventArgs e)
-	{
-		_tenthsOfSecondsElapsed++;
-		TimerTextBlock.Text = (_tenthsOfSecondsElapsed / 10d).ToString("0.0s");
-
-		if (_matchesFound == 8)
-		{
-			_timer.Stop();
-			TimerTextBlock.Text += " - Jeszcze raz?";
-		}
-	}
-
-	private void SetUpGame()
-	{
-		List<string> animals =
-		[
-			"🦇", "🦇",
-			"🐅", "🐅",
-			"🦥", "🦥",
-			"🦔", "🦔",
-			"🐢", "🐢",
-			"🐘", "🐘",
-			"🦭", "🦭",
-			"🦀", "🦀",
-		];
-
-		Random random = new();
-
-		foreach (var item in MainGrid.Children.OfType<TextBlock>())
-		{
-			if (item.Name != "TimerTextBlock")
-			{
-				item.Visibility = Visibility.Visible;
-				int index = random.Next(animals.Count);
-				item.Text = animals[index];
-				animals.RemoveAt(index);
-			}
-		}
-
-		StartTimer();
-	}
-
-	private void StartTimer()
-	{
-		_tenthsOfSecondsElapsed = 0;
-		_matchesFound = 0;
-		_timer.Start();
 	}
 }
