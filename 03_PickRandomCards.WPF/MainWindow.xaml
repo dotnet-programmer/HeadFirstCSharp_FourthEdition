@@ -9,7 +9,7 @@
 		Height="300"
 		Width="500"
 		WindowStartupLocation="CenterScreen">
-	
+
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition />

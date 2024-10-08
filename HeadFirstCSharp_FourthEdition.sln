@@ -65,6 +65,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_MatchGame.BlazorWebAssem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_Controls.BlazorWebAssembly", "02_Controls.BlazorWebAssembly\02_Controls.BlazorWebAssembly.csproj", "{5D92CBA9-406B-4CB7-87C9-39CE17C3ED49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_PickRandomCards.BlazorWebAssembly", "03_PickRandomCards.BlazorWebAssembly\03_PickRandomCards.BlazorWebAssembly.csproj", "{54002C3A-2D98-4587-B635-6F7874DE1601}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +197,10 @@ Global
 		{5D92CBA9-406B-4CB7-87C9-39CE17C3ED49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D92CBA9-406B-4CB7-87C9-39CE17C3ED49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D92CBA9-406B-4CB7-87C9-39CE17C3ED49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54002C3A-2D98-4587-B635-6F7874DE1601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54002C3A-2D98-4587-B635-6F7874DE1601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54002C3A-2D98-4587-B635-6F7874DE1601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54002C3A-2D98-4587-B635-6F7874DE1601}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
