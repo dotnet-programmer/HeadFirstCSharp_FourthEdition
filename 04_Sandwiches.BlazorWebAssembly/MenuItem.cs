@@ -1,8 +1,6 @@
-﻿using System;
+﻿namespace Sandwiches.BlazorWebAssembly;
 
-namespace Sandwiches.WPFApp;
-
-internal class MenuItem
+public class MenuItem
 {
 	private static readonly Random _randomizer = new();
 

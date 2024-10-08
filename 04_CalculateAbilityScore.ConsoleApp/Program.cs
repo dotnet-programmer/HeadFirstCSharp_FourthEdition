@@ -8,6 +8,7 @@ while (true)
 	calculator.DivideBy = ReadDouble(calculator.DivideBy, "Dzielone przez");
 	calculator.AddAmount = ReadInt(calculator.AddAmount, "Dodawana wartość");
 	calculator.Minimum = ReadInt(calculator.Minimum, "Minimum");
+
 	calculator.CalculateAbilityScore();
 
 	Console.WriteLine("Obliczone punkty umiejętności: " + calculator.Score);
@@ -23,16 +24,16 @@ while (true)
 /// <summary>
 /// Wyświetla informację i wczytuje wartość typu int z konsoli.
 /// </summary>
-/// <param name=”lastUsedValue”>Wartość domyślna.</param>
-/// <param name=”prompt”>Informacja wyświetlana w konsoli.</param>
+/// <param name="lastUsedValue">Wartość domyślna.</param>
+/// <param name="prompt">Informacja wyświetlana w konsoli.</param>
 /// <returns>Wczytana wartość int lub wartość domyślna
 /// (jeśli nie można przetworzyć wczytanej wartości)</returns>
 static int ReadInt(int lastUsedValue, string prompt)
 {
 	// Wyświetlanie informacji i [wartości domyślnej]:
 	// Wczytywanie wiersza danych wyjściowych i używanie int.TryParse do próby ich przetworzenia.
-	// Jeśli jest to możliwe, wyświetlanie w konsoli ” użycie wartości ” + value.
-	// W przeciwnym razie wyświetlanie w konsoli ” użycie wartości domyślnej ” + lastUsedValue.
+	// Jeśli jest to możliwe, wyświetlanie w konsoli " użycie wartości " + value.
+	// W przeciwnym razie wyświetlanie w konsoli " użycie wartości domyślnej " + lastUsedValue.
 
 	Console.Write(prompt + " [" + lastUsedValue + "]: ");
 	string line = Console.ReadLine();
