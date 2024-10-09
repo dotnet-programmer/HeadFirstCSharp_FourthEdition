@@ -9,7 +9,7 @@
 		Height="200"
 		Width="300"
 		WindowStartupLocation="CenterScreen">
-	
+
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition />
@@ -29,7 +29,7 @@
 				  HorizontalAlignment="Center"
 				  Checked="CheckBox_Changed"
 				  Unchecked="CheckBox_Changed" />
-		
+
 		<CheckBox x:Name="ChIsMagic"
 				  Grid.Row="0"
 				  Grid.Column="1"

@@ -7,7 +7,6 @@ while (true)
 {
 	Console.Write("0 — ani magiczny, ani płonący; 1 — magiczny; 2 — płonący; 3 — magiczny i płonący; inne wartości — koniec: ");
 	char key = Console.ReadKey().KeyChar;
-
 	if (key is not '0' and not '1' and not '2' and not '3')
 	{
 		return;
