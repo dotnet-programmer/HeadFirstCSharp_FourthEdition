@@ -18,29 +18,6 @@ public partial class MainWindow : Window
 		}
 	}
 
-	private void MoveCard(bool leftToRight)
-	{
-		if ((Resources["rightDeck"] is Deck rightDeck) && (Resources["leftDeck"] is Deck leftDeck))
-		{
-			if (leftToRight)
-			{
-				if (ListBoxLeftDeck.SelectedItem is Card card)
-				{
-					leftDeck.Remove(card);
-					rightDeck.Add(card);
-				}
-			}
-			else
-			{
-				if (ListBoxRightDeck.SelectedItem is Card card)
-				{
-					rightDeck.Remove(card);
-					leftDeck.Add(card);
-				}
-			}
-		}
-	}
-
 	private void BtnShuffleLeftDeck_Click(object sender, RoutedEventArgs e)
 	{
 		if (Resources["leftDeck"] is Deck leftDeck)
@@ -94,4 +71,25 @@ public partial class MainWindow : Window
 
 	private void ListBoxRightDeck_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		=> MoveCard(false);
+
+	private void MoveCard(bool leftToRight)
+	{
+		if ((Resources["rightDeck"] is Deck rightDeck) && (Resources["leftDeck"] is Deck leftDeck))
+		{
+			if (leftToRight)
+			{
+				if (ListBoxLeftDeck.SelectedItem is Card card && leftDeck.Remove(card))
+				{
+					rightDeck.Add(card);
+				}
+			}
+			else
+			{
+				if (ListBoxRightDeck.SelectedItem is Card card && rightDeck.Remove(card))
+				{
+					leftDeck.Add(card);
+				}
+			}
+		}
+	}
 }

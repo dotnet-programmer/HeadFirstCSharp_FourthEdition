@@ -33,7 +33,7 @@
 			   Content="Deck _1"
 			   Margin="10,0,0,0"
 			   Target="{Binding ElementName=ListBoxLeftDeck, Mode=OneWay}" />
-		
+
 		<Label x:Name="LabelDeck2"
 			   Grid.Row="0"
 			   Grid.Column="1"
@@ -47,7 +47,7 @@
 				 ItemsSource="{DynamicResource leftDeck}"
 				 KeyDown="ListBoxLeftDeck_KeyDown"
 				 MouseDoubleClick="ListBoxLeftDeck_MouseDoubleClick" />
-		
+
 		<ListBox x:Name="ListBoxRightDeck"
 				 Grid.Row="1"
 				 Grid.Column="1"
@@ -62,7 +62,7 @@
 				Content="_Shuffle"
 				Margin="10,5,10,5"
 				Click="BtnShuffleLeftDeck_Click" />
-		
+
 		<Button x:Name="BtnClearRightDeck"
 				Grid.Row="2"
 				Grid.Column="1"
@@ -76,7 +76,7 @@
 				Content="_Reset"
 				Margin="10,5,10,10"
 				Click="BtnResetLeftDeck_Click" />
-		
+
 		<Button x:Name="BtnSortRightDeck"
 				Grid.Row="3"
 				Grid.Column="1"

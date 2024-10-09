@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿namespace TwoDecks.BlazorWebAssembly;
 
-namespace TwoDecks.WPF;
-
-internal class Deck : ObservableCollection<Card>
+public class Deck : List<Card>
 {
 	private static readonly Random _random = new();
 
 	public Deck()
 		=> Reset();
-
-	public Card Deal(int index)
-	{
-		Card cardToDeal = base[index];
-		RemoveAt(index);
-		return cardToDeal;
-	}
 
 	public void Reset()
 	{
@@ -33,17 +22,6 @@ internal class Deck : ObservableCollection<Card>
 			int index = _random.Next(copy.Count);
 			Card card = copy[index];
 			copy.RemoveAt(index);
-			Add(card);
-		}
-	}
-
-	public void Sort()
-	{
-		List<Card> sortedCards = new(this);
-		sortedCards.Sort(new CardComparerByValue());
-		Clear();
-		foreach (Card card in sortedCards)
-		{
 			Add(card);
 		}
 	}

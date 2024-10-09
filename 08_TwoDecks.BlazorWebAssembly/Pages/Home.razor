@@ -1,0 +1,97 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="container">
+	<div class="row">
+		<div class="col-5">
+			<div class="row">
+				<label for="deck1" accesskey="p">
+					<strong>Talia <span style="text-decoration: underline">p</span>ierwsza</strong>
+				</label>
+				<select @bind="twoDecks.LeftCardSelected"
+						@onkeypress="LeftKeyHandler" 
+						@ondblclick="LeftDblClickHandler"
+						class="custom-select" 
+						size="10" 
+						id="deck1">
+					@for (int i = 0; i < twoDecks.LeftDeckCount; i++)
+					{
+						<option value="@i">@twoDecks.LeftDeckCardName(i)</option>
+					}
+				</select>
+			</div>
+
+			<div class="row">
+				<button class="btn btn-primary col mt-2" accesskey="t" @onclick="twoDecks.Shuffle">
+					<span style="text-decoration: underline">T</span>asuj
+				</button>
+			</div>
+
+			<div class="row">
+				<button class="btn btn-primary col mt-2" accesskey="r" @onclick="twoDecks.Reset">
+					<span style="text-decoration: underline">R</span>esetuj
+				</button>
+			</div>
+		</div>
+
+		<div class="col-1" />
+
+		<div class="col-5">
+			<div class="row">
+				<label for="deck2" accesskey="d">
+					<strong>Talia <span style="text-decoration: underline">d</span>ruga</strong>
+				</label>
+				<select @bind="twoDecks.RightCardSelected"
+						@onkeypress="RightKeyHandler" 
+						@ondblclick="RightDblClickHandler"
+						class="custom-select" 
+						size="10" 
+						id="deck2">
+					@for (int i = 0; i < twoDecks.RightDeckCount; i++)
+					{
+						<option value="@i">@twoDecks.RightDeckCardName(i)</option>
+					}
+				</select>
+			</div>
+
+			<div class="row">
+				<button class="btn btn-primary col mt-2" accesskey="z" @onclick="twoDecks.Clear">
+					<span style="text-decoration: underline">Z</span>eruj
+				</button>
+			</div>
+
+			<div class="row">
+				<button class="btn btn-primary col mt-2" accesskey="s" @onclick="twoDecks.Sort">
+					<span style="text-decoration: underline">S</span>ortuj
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+	TwoDecksClass twoDecks = new();
+
+	private void LeftKeyHandler(KeyboardEventArgs e)
+	{
+		if (e.Key == "Enter")
+		{
+			twoDecks.MoveCard(Direction.LeftToRight);
+		}
+	}
+
+	private void RightKeyHandler(KeyboardEventArgs e)
+	{
+		if (e.Key == "Enter")
+		{
+			twoDecks.MoveCard(Direction.RightToLeft);
+		}
+	}
+
+	private void LeftDblClickHandler(MouseEventArgs e)
+		=> twoDecks.MoveCard(Direction.LeftToRight);
+
+	private void RightDblClickHandler(MouseEventArgs e)
+		=> twoDecks.MoveCard(Direction.RightToLeft);
+}
