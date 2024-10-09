@@ -9,10 +9,13 @@
 		Height="325"
 		Width="625">
 
+	<!-- Ten znacznik tworzy nowy obiekt typu Queen i dodaje go do zasobów okna. 
+		W ten sposób okna WPF przechowują referencje do obiektów używanych przez kontrolki. -->
 	<Window.Resources>
 		<local:Queen x:Key="queen" />
 	</Window.Resources>
 
+	<!-- Potrzebny obiekt Queen queen i powiazanie z nim do bindowania właściwości Queen.StatusReport -->
 	<Grid DataContext="{StaticResource queen}">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*" />
@@ -56,6 +59,7 @@
 					Click="BtnAssignJob_Click" />
 		</StackPanel>
 
+		<!-- kontrolka TextBox będzie automatycznie aktualizowana za każdym razem, gdy obiekt typu Queen wywoła zdarzenie PropertyChanged -->
 		<TextBox x:Name="TxtStatusReport"
 				 Grid.Row="1"
 				 Grid.Column="1"
