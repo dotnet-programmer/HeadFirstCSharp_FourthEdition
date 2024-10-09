@@ -30,7 +30,7 @@
 			   FontSize="18"
 			   HorizontalAlignment="Center"
 			   VerticalAlignment="Bottom" />
-		
+
 		<Label Grid.Row="0"
 			   Grid.Column="1"
 			   Content="Raport dla królowej"

@@ -15,7 +15,7 @@ while (true)
 	}
 
 	Console.Write("\nM - miecz, S - strzały, inne klawisze - koniec: ");
-	char weaponKey = Char.ToUpper(Console.ReadKey().KeyChar);
+	char weaponKey = char.ToUpper(Console.ReadKey().KeyChar);
 	switch (weaponKey)
 	{
 		case 'M':
@@ -46,6 +46,5 @@ int RollDice(int numberOfRolls)
 	{
 		total += random.Next(1, 7);
 	}
-
 	return total;
 }

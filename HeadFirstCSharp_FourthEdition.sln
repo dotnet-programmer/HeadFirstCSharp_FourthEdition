@@ -71,6 +71,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04_Sandwiches.BlazorWebAsse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_SwordDamage.BlazorWebAssembly", "05_SwordDamage.BlazorWebAssembly\05_SwordDamage.BlazorWebAssembly.csproj", "{8B7C7892-FAF5-4C49-9D2B-3924ADA68FC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_BeehiveManagementSystem.BlazorWebAssembly", "06_BeehiveManagementSystem.BlazorWebAssembly\06_BeehiveManagementSystem.BlazorWebAssembly.csproj", "{20F1CC44-E1F4-4FBF-B194-FBB2DFBE1AD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -213,6 +215,10 @@ Global
 		{8B7C7892-FAF5-4C49-9D2B-3924ADA68FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B7C7892-FAF5-4C49-9D2B-3924ADA68FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B7C7892-FAF5-4C49-9D2B-3924ADA68FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20F1CC44-E1F4-4FBF-B194-FBB2DFBE1AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20F1CC44-E1F4-4FBF-B194-FBB2DFBE1AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20F1CC44-E1F4-4FBF-B194-FBB2DFBE1AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20F1CC44-E1F4-4FBF-B194-FBB2DFBE1AD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
