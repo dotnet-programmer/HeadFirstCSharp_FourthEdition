@@ -7,6 +7,6 @@ namespace BasketballRoster.WPF.View;
 /// </summary>
 public partial class RosterControl : UserControl
 {
-	public RosterControl() 
+	public RosterControl()
 		=> InitializeComponent();
 }

@@ -7,6 +7,6 @@ namespace BasketballRoster.WPF.View;
 /// </summary>
 public partial class LeagueWindow : Window
 {
-	public LeagueWindow() 
+	public LeagueWindow()
 		=> InitializeComponent();
 }

@@ -47,14 +47,14 @@ internal class StopwatchModel
 	/// <summary>
 	/// Returns the elapsed time, or zero if the stopwatch is not running
 	/// </summary>
-	public TimeSpan Elapsed 
+	public TimeSpan Elapsed
 		=> _paused
 		? _pausedAt - _startedTime - _totalPausedTime
-		: _startedTime != DateTime.MinValue 
-			? DateTime.Now - _startedTime - _totalPausedTime 
+		: _startedTime != DateTime.MinValue
+			? DateTime.Now - _startedTime - _totalPausedTime
 			: TimeSpan.Zero;
 
-	public void SetLapTime() 
+	public void SetLapTime()
 		=> LapTime = Elapsed;
 
 	/// <summary>

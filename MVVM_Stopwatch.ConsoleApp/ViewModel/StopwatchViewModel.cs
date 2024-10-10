@@ -1,5 +1,5 @@
-﻿using Stopwatch.ConsoleApp.Model;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using Stopwatch.ConsoleApp.Model;
 
 namespace Stopwatch.ConsoleApp.ViewModel;
 
@@ -9,39 +9,39 @@ public class StopwatchViewModel : INotifyPropertyChanged
 
 	public event PropertyChangedEventHandler PropertyChanged;
 
-	public string Hours 
+	public string Hours
 		=> _model.Elapsed.Hours.ToString("D2");
 
-	public string Minutes 
+	public string Minutes
 		=> _model.Elapsed.Minutes.ToString("D2");
 
-	public string Seconds 
+	public string Seconds
 		=> _model.Elapsed.Seconds.ToString("D2");
 
-	public object Tenths 
+	public object Tenths
 		=> _model.Elapsed.Milliseconds.ToString("D3");
 
-	public object LapHours 
+	public object LapHours
 		=> _model.LapTime.Hours.ToString("D2");
 
-	public object LapMinutes 
+	public object LapMinutes
 		=> _model.LapTime.Minutes.ToString("D2");
 
-	public object LapSeconds 
+	public object LapSeconds
 		=> _model.LapTime.Seconds.ToString("D2");
 
-	public object LapTenths 
+	public object LapTenths
 		=> _model.LapTime.Milliseconds.ToString("D3");
 
-	public void StartStop() 
+	public void StartStop()
 		=> _model.Running = !_model.Running;
 
-	public void Reset() 
+	public void Reset()
 		=> _model.Reset();
 
-	public void LapTime() 
+	public void LapTime()
 		=> _model.SetLapTime();
 
-	public void OnPropertyChanged(string propertyName) 
+	public void OnPropertyChanged(string propertyName)
 		=> PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }
