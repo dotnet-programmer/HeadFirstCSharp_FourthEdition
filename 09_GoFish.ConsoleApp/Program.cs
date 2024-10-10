@@ -74,7 +74,7 @@ Values PromptForAValue()
 Player PromptForAnOpponent()
 {
 	var opponents = gameController.Opponents.ToList();
-	for (int i = 1; i <= opponents.Count(); i++)
+	for (int i = 1; i <= opponents.Count; i++)
 	{
 		Console.WriteLine($"{i}. {opponents[i - 1]}");
 	}
@@ -82,13 +82,13 @@ Player PromptForAnOpponent()
 	Console.Write("Who do you want to ask for a card? ");
 	while (true)
 	{
-		if (int.TryParse(Console.ReadLine(), out int selection) && selection >= 1 && selection <= opponents.Count())
+		if (int.TryParse(Console.ReadLine(), out int selection) && selection >= 1 && selection <= opponents.Count)
 		{
 			return opponents[selection - 1];
 		}
 		else
 		{
-			Console.Write($"Please enter a number from 1 to {opponents.Count()}: ");
+			Console.Write($"Please enter a number from 1 to {opponents.Count}: ");
 		}
 	}
 }

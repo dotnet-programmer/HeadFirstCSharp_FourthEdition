@@ -38,7 +38,7 @@ public class GameState
 	/// </summary>
 	/// <param name="currentPlayer">The current player</param>
 	/// <returns>A random player that the current player can ask for a card</returns>
-	public Player RandomPlayer(Player currentPlayer) 
+	public Player RandomPlayer(Player currentPlayer)
 		=> Players.Where(p => p != currentPlayer).ElementAt(Player.Random.Next(Players.Count() - 1));
 
 	/// <summary>

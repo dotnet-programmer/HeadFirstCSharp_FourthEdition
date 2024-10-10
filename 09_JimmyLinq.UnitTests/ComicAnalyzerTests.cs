@@ -5,7 +5,7 @@ using JimmyLinq;
 [TestClass]
 public class ComicAnalyzerTests
 {
-	private readonly IEnumerable<Comic> testComics = new[]
+	private readonly IEnumerable<Comic> _testComics = new[]
 	{
 		new Comic() { Issue = 1, Name = "Numer 1"},
 		new Comic() { Issue = 2, Name = "Numer 2"},
@@ -15,14 +15,14 @@ public class ComicAnalyzerTests
 	[TestMethod]
 	public void ComicAnalyzer_Should_Group_Comics()
 	{
-		var prices = new Dictionary<int, decimal>()
+		Dictionary<int, decimal> prices = new()
 		{
 			{ 1, 20M },
 			{ 2, 10M },
 			{ 3, 1000M },
 		};
 
-		var groups = ComicAnalyzer.GroupComicsByPrice(testComics, prices);
+		var groups = ComicAnalyzer.GroupComicsByPrice(_testComics, prices);
 		Assert.AreEqual(2, groups.Count());
 		Assert.AreEqual(PriceRange.Cheap, groups.First().Key);
 		Assert.AreEqual(2, groups.First().First().Issue);
@@ -48,7 +48,7 @@ public class ComicAnalyzerTests
 			"RottenTornadoes rated #2 'Numer 2' 95,11",
 		};
 
-		var actualResults = ComicAnalyzer.GetReviews(testComics, testReviews).ToList();
+		var actualResults = ComicAnalyzer.GetReviews(_testComics, testReviews).ToList();
 		CollectionAssert.AreEqual(expectedResults, actualResults);
 	}
 
@@ -77,7 +77,7 @@ public class ComicAnalyzerTests
 			"MuddyCritic rated #2 'Numer 2' 40,30",
 		};
 
-		var actualResults = ComicAnalyzer.GetReviews(testComics, testReviews).ToList();
+		var actualResults = ComicAnalyzer.GetReviews(_testComics, testReviews).ToList();
 		CollectionAssert.AreEqual(expectedResults, actualResults);
 	}
 }

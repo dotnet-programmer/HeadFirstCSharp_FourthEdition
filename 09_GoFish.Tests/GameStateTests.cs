@@ -15,7 +15,7 @@ public class GameStateTests
 			"Computer3",
 		};
 
-		var gameState = new GameState("Human", computerPlayerNames, new Deck());
+		var gameState = new GameState("Human", computerPlayerNames, []);
 		CollectionAssert.AreEqual(
 			new List<string> { "Human", "Computer1", "Computer2", "Computer3" },
 			gameState.Players.Select(player => player.Name).ToList());
@@ -31,7 +31,7 @@ public class GameStateTests
 			"Computer2",
 			"Computer3",
 		};
-		var gameState = new GameState("Human", computerPlayerNames, new Deck());
+		var gameState = new GameState("Human", computerPlayerNames, []);
 		Player.Random = new MockRandom() { ValueToReturn = 1 };
 		Assert.AreEqual("Computer2", gameState.RandomPlayer(gameState.Players.ToList()[0]).Name);
 		Player.Random = new MockRandom() { ValueToReturn = 0 };
@@ -46,27 +46,27 @@ public class GameStateTests
 		deck.Clear();
 		var cardsToAdd = new List<Card>() {
 			// Cards the game will deal to Owen
-			new Card(Values.Jack, Suits.Spades),
-			new Card(Values.Jack, Suits.Hearts),
-			new Card(Values.Six, Suits.Spades),
-			new Card(Values.Jack, Suits.Diamonds),
-			new Card(Values.Six, Suits.Hearts),
+			new(Values.Jack, Suits.Spades),
+			new(Values.Jack, Suits.Hearts),
+			new(Values.Six, Suits.Spades),
+			new(Values.Jack, Suits.Diamonds),
+			new(Values.Six, Suits.Hearts),
 			// Cards the game will deal to Brittney
-			new Card(Values.Six, Suits.Diamonds),
-			new Card(Values.Six, Suits.Clubs),
-			new Card(Values.Seven, Suits.Spades),
-			new Card(Values.Jack, Suits.Clubs),
-			new Card(Values.Nine, Suits.Spades),
+			new(Values.Six, Suits.Diamonds),
+			new(Values.Six, Suits.Clubs),
+			new(Values.Seven, Suits.Spades),
+			new(Values.Jack, Suits.Clubs),
+			new(Values.Nine, Suits.Spades),
 			// Two more cards in the deck for Owen to draw when he runs out
-			new Card(Values.Queen, Suits.Hearts),
-			new Card(Values.King, Suits.Spades),
+			new(Values.Queen, Suits.Hearts),
+			new(Values.King, Suits.Spades),
 		};
 		foreach (var card in cardsToAdd)
 		{
 			deck.Add(card);
 		}
 
-		var gameState = new GameState("Owen", new List<string>() { "Brittney" }, deck);
+		var gameState = new GameState("Owen", ["Brittney"], deck);
 		var owen = gameState.HumanPlayer;
 		var brittney = gameState.Opponents.First();
 		Assert.AreEqual("Owen", owen.Name);

@@ -17,13 +17,13 @@ public class GameController
 		Status = $"Starting a new game with players {string.Join(", ", _gameState.Players)}";
 	}
 
-	public bool GameOver 
+	public bool GameOver
 		=> _gameState.GameOver;
 
-	public Player HumanPlayer 
+	public Player HumanPlayer
 		=> _gameState.HumanPlayer;
 
-	public IEnumerable<Player> Opponents 
+	public IEnumerable<Player> Opponents
 		=> _gameState.Opponents;
 
 	public string Status { get; private set; }
@@ -61,13 +61,13 @@ public class GameController
 		IEnumerable<Player> computerPlayersWithCards;
 		do
 		{
-			computerPlayersWithCards = _gameState.Opponents.Where(player => player.Hand.Count() > 0);
+			computerPlayersWithCards = _gameState.Opponents.Where(player => player.Hand.Any());
 			foreach (Player player in computerPlayersWithCards)
 			{
 				var randomPlayer = _gameState.RandomPlayer(player);
 				var randomValue = player.RandomValueFromHand();
 				Status += _gameState.PlayRound(player, randomPlayer, randomValue, _gameState.Stock) + Environment.NewLine;
 			}
-		} while ((_gameState.HumanPlayer.Hand.Count() == 0) && (computerPlayersWithCards.Count() > 0));
+		} while ((_gameState.HumanPlayer.Hand.Count() == 0) && (computerPlayersWithCards.Any()));
 	}
 }

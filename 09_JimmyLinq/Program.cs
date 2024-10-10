@@ -33,6 +33,5 @@ static bool GetReviews()
 	{
 		Console.WriteLine(review);
 	}
-
 	return false;
 }

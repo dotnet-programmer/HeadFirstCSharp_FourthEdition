@@ -4,7 +4,7 @@ public class Deck : List<Card>
 {
 	private static readonly Random _random = Player.Random;
 
-	public Deck() 
+	public Deck()
 		=> Reset();
 
 	public void Reset()

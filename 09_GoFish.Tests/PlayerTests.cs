@@ -8,25 +8,25 @@ public class PlayerTests
 	[TestMethod]
 	public void TestGetNextHand()
 	{
-		var player = new Player("Owen", new List<Card>());
-		player.GetNextHand(new Deck());
+		var player = new Player("Owen", []);
+		player.GetNextHand([]);
 		CollectionAssert.AreEqual(new Deck().Take(5).Select(card => card.ToString()).ToList(), player.Hand.Select(card => card.ToString()).ToList());
 	}
 
 	[TestMethod]
 	public void TestDoYouHaveAny()
 	{
-		IEnumerable<Card> cards = new List<Card>()
-		{
+		IEnumerable<Card> cards =
+		[
 			new Card(Values.Jack, Suits.Spades),
 			new Card(Values.Three, Suits.Clubs),
 			new Card(Values.Three, Suits.Hearts),
 			new Card(Values.Four, Suits.Diamonds),
 			new Card(Values.Three, Suits.Diamonds),
 			new Card(Values.Jack, Suits.Clubs),
-		};
+		];
 		var player = new Player("Owen", cards);
-		var threes = player.DoYouHaveAny(Values.Three, new Deck())
+		var threes = player.DoYouHaveAny(Values.Three, [])
 							.Select(Card => Card.ToString())
 							.ToList();
 		CollectionAssert.AreEqual(new List<string>()
@@ -37,7 +37,7 @@ public class PlayerTests
 		}, threes);
 		Assert.AreEqual(3, player.Hand.Count());
 
-		var jacks = player.DoYouHaveAny(Values.Jack, new Deck())
+		var jacks = player.DoYouHaveAny(Values.Jack, [])
 							.Select(Card => Card.ToString())
 							.ToList();
 		CollectionAssert.AreEqual(new List<string>()
@@ -54,8 +54,8 @@ public class PlayerTests
 	[TestMethod]
 	public void TestAddCardsAndPullOutBooks()
 	{
-		IEnumerable<Card> cards = new List<Card>()
-		{
+		IEnumerable<Card> cards =
+		[
 			new Card(Values.Jack, Suits.Spades),
 			new Card(Values.Three, Suits.Clubs),
 			new Card(Values.Jack, Suits.Hearts),
@@ -63,13 +63,13 @@ public class PlayerTests
 			new Card(Values.Four, Suits.Diamonds),
 			new Card(Values.Jack, Suits.Diamonds),
 			new Card(Values.Jack, Suits.Clubs),
-		};
+		];
 		var player = new Player("Owen", cards);
 		Assert.AreEqual(0, player.Books.Count());
 		var cardsToAdd = new List<Card>()
 		{
-			new Card(Values.Three, Suits.Diamonds),
-			new Card(Values.Three, Suits.Spades),
+			new(Values.Three, Suits.Diamonds),
+			new(Values.Three, Suits.Spades),
 		};
 		player.AddCardsAndPullOutBooks(cardsToAdd);
 		var books = player.Books.ToList();
@@ -82,8 +82,8 @@ public class PlayerTests
 	[TestMethod]
 	public void TestDrawCard()
 	{
-		var player = new Player("Owen", new List<Card>());
-		player.DrawCard(new Deck());
+		var player = new Player("Owen", []);
+		player.DrawCard([]);
 		Assert.AreEqual(1, player.Hand.Count());
 		Assert.AreEqual("Ace of Diamonds", player.Hand.First().ToString());
 	}
@@ -91,7 +91,7 @@ public class PlayerTests
 	[TestMethod]
 	public void TestRandomValueFromHand()
 	{
-		var player = new Player("Owen", new Deck());
+		var player = new Player("Owen", []);
 		Player.Random = new MockRandom() { ValueToReturn = 0 };
 		Assert.AreEqual("Ace", player.RandomValueFromHand().ToString());
 		Player.Random = new MockRandom() { ValueToReturn = 4 };
