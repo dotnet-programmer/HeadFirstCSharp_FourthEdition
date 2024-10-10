@@ -7,14 +7,14 @@ public class GameController
 	/// <summary>
 	/// Private list of opponents the player needs to find
 	/// </summary>
-	public readonly IEnumerable<Opponent> Opponents = new List<Opponent>()
-	{
+	public readonly IEnumerable<Opponent> Opponents =
+	[
 		new("Joe"),
 		new("Bob"),
 		new("Ana"),
 		new("Owen"),
 		new("Jimmy"),
-	};
+	];
 
 	/// <summary>
 	/// Private list of opponents the player has found so far
@@ -50,7 +50,8 @@ public class GameController
 	/// <summary>
 	/// Returns true if the game is over
 	/// </summary>
-	public bool GameOver => Opponents.Count() == _foundOpponents.Count;
+	public bool GameOver
+		=> Opponents.Count() == _foundOpponents.Count;
 
 	/// <summary>
 	/// Returns the the current status to show to the player

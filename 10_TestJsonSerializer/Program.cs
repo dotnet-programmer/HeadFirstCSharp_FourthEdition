@@ -2,11 +2,11 @@
 using TestJsonSerializer;
 
 var guys = new List<Guy>() {
-	new Guy() {
+	new() {
 		Name = "Borys", Clothes = new Outfit() { Top = "t-shirt", Bottom = "dżinsy" },
 		Hair = new HairStyle() { Color = HairColor.czerwone, Length = 8.9f }
 	},
-	new Guy() {
+	new() {
 		Name = "Jonasz", Clothes = new Outfit() { Top = "polo", Bottom = "spodnie" },
 		Hair = new HairStyle() { Color = HairColor.szare, Length = 6.8f }
 	},

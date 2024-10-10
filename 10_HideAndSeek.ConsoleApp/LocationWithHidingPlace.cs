@@ -21,7 +21,7 @@ public class LocationWithHidingPlace(string name, string hidingPlace) : Location
 	/// Hides an opponent in the hiding place
 	/// </summary>
 	/// <param name="opponent">Opponent to hide</param>
-	public void Hide(Opponent opponent) 
+	public void Hide(Opponent opponent)
 		=> _hiddenOpponents.Add(opponent);
 
 	/// <summary>

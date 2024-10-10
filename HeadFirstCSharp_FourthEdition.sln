@@ -51,8 +51,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_HideAndSeek.ConsoleApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_HideAndSeek.Test", "10_HideAndSeek.Test\10_HideAndSeek.Test.csproj", "{C4DF8D9D-A49F-47CD-B11C-17632C374A81}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_JsonSerializer", "10_JsonSerializer\10_JsonSerializer.csproj", "{8701DA60-CDC9-41EA-B075-0E39F7F195B8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_TestJsonSerializer", "10_TestJsonSerializer\10_TestJsonSerializer.csproj", "{4CE8EBE5-B8E8-46D4-AE8E-CB4661932BB9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVM_BasketballRoster.WPF", "MVVM_BasketballRoster.WPF\MVVM_BasketballRoster.WPF.csproj", "{F656BD4F-CA0F-4384-A004-C9EE33D91AFF}"
@@ -69,13 +67,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_PickRandomCards.BlazorWe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04_Sandwiches.BlazorWebAssembly", "04_Sandwiches.BlazorWebAssembly\04_Sandwiches.BlazorWebAssembly.csproj", "{10C58CFB-E8C8-414F-AD87-0FEE5B8B3C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_SwordDamage.BlazorWebAssembly", "05_SwordDamage.BlazorWebAssembly\05_SwordDamage.BlazorWebAssembly.csproj", "{8B7C7892-FAF5-4C49-9D2B-3924ADA68FC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_SwordDamage.BlazorWebAssembly", "05_SwordDamage.BlazorWebAssembly\05_SwordDamage.BlazorWebAssembly.csproj", "{8B7C7892-FAF5-4C49-9D2B-3924ADA68FC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_BeehiveManagementSystem.BlazorWebAssembly", "06_BeehiveManagementSystem.BlazorWebAssembly\06_BeehiveManagementSystem.BlazorWebAssembly.csproj", "{20F1CC44-E1F4-4FBF-B194-FBB2DFBE1AD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_BeehiveManagementSystem.BlazorWebAssembly", "06_BeehiveManagementSystem.BlazorWebAssembly\06_BeehiveManagementSystem.BlazorWebAssembly.csproj", "{20F1CC44-E1F4-4FBF-B194-FBB2DFBE1AD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_ScaryClown.ConsoleApp", "07_ScaryClown.ConsoleApp\07_ScaryClown.ConsoleApp.csproj", "{0D3A0923-3F5B-4C9C-B085-797A23256440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_ScaryClown.ConsoleApp", "07_ScaryClown.ConsoleApp\07_ScaryClown.ConsoleApp.csproj", "{0D3A0923-3F5B-4C9C-B085-797A23256440}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_TwoDecks.BlazorWebAssembly", "08_TwoDecks.BlazorWebAssembly\08_TwoDecks.BlazorWebAssembly.csproj", "{9B9A9DA4-EDBB-4515-AAAD-AEC8C6683CE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_TwoDecks.BlazorWebAssembly", "08_TwoDecks.BlazorWebAssembly\08_TwoDecks.BlazorWebAssembly.csproj", "{9B9A9DA4-EDBB-4515-AAAD-AEC8C6683CE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,10 +177,6 @@ Global
 		{C4DF8D9D-A49F-47CD-B11C-17632C374A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4DF8D9D-A49F-47CD-B11C-17632C374A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4DF8D9D-A49F-47CD-B11C-17632C374A81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8701DA60-CDC9-41EA-B075-0E39F7F195B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8701DA60-CDC9-41EA-B075-0E39F7F195B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8701DA60-CDC9-41EA-B075-0E39F7F195B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8701DA60-CDC9-41EA-B075-0E39F7F195B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4CE8EBE5-B8E8-46D4-AE8E-CB4661932BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4CE8EBE5-B8E8-46D4-AE8E-CB4661932BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CE8EBE5-B8E8-46D4-AE8E-CB4661932BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU

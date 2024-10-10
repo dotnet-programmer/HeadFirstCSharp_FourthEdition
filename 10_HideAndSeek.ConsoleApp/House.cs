@@ -76,7 +76,7 @@ public static class House
 	/// </summary>
 	/// <param name="name">The name of the location to find</param>
 	/// <returns>The location, or Entry if no location by that name was found</returns>
-	public static Location GetLocationByName(string location) 
+	public static Location GetLocationByName(string location)
 		=> _locations.Any(x => x.Name == location) ? _locations.First(x => x.Name == location) : Entry;
 
 	//public static Location RandomExit(Location location) => location.Exits.ElementAt(Random.Next(location.Exits.Count)).Value;
@@ -86,7 +86,7 @@ public static class House
 	/// </summary>
 	/// <param name="location">Location to get the random exit from</param>
 	/// <returns>One of the locatin's exits selected randomly</returns>
-	public static Location RandomExit(Location location) 
+	public static Location RandomExit(Location location)
 		=> GetLocationByName(
 			location
 				.Exits
