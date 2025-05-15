@@ -1,4 +1,4 @@
-﻿namespace _03_PickRandomCards.BlazorWebAssembly;
+﻿namespace PickRandomCards.BlazorWebAssembly;
 
 public class CardPicker
 {

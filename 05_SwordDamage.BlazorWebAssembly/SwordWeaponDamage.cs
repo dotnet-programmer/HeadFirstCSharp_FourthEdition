@@ -1,6 +1,6 @@
-﻿namespace _05_SwordDamage.BlazorWebAssembly;
+﻿namespace SwordDamage.BlazorWebAssembly;
 
-public class SwordDamage
+public class SwordWeaponDamage
 {
 	private const int BASE_DAMAGE = 3;
 	private const int FLAME_DAMAGE = 2;
@@ -10,11 +10,10 @@ public class SwordDamage
 	private bool _flaming;
 
 	/// <summary>
-	/// The constructor calculates damage based on default Magic
-	/// and Flaming values and a starting 3d6 roll.
+	/// The constructor calculates damage based on default Magic and Flaming values and a starting 3d6 roll.
 	/// </summary>
 	/// <param name="startingRoll">Starting 3d6 roll</param>
-	public SwordDamage(int startingRoll)
+	public SwordWeaponDamage(int startingRoll)
 	{
 		_roll = startingRoll;
 		CalculateDamage();

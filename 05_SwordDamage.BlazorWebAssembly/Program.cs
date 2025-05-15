@@ -1,4 +1,4 @@
-using _05_SwordDamage.BlazorWebAssembly;
+using SwordDamage.BlazorWebAssembly;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

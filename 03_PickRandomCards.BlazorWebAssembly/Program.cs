@@ -1,4 +1,4 @@
-using _03_PickRandomCards.BlazorWebAssembly;
+using PickRandomCards.BlazorWebAssembly;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

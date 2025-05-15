@@ -4,8 +4,9 @@ public class MenuItem
 {
 	private static readonly Random _randomizer = new();
 
-	public string[] Proteins = ["Wołowina", "Salami", "Indyk", "Szynka", "Pastrami", "Tofu"];
-	public string[] Condiments = ["musztarda żółta", "musztarda brązowa", "musztarda miodowa", "majonez", "przyprawy", "sos francuski"];
+	private readonly string[] _proteins = ["Wołowina", "Salami", "Indyk", "Szynka", "Pastrami", "Tofu"];
+	private readonly string[] _condiments = ["musztarda żółta", "musztarda brązowa", "musztarda miodowa", "majonez", "przyprawy", "sos francuski"];
+
 	public string[] Breads = ["ryżowe", "białe", "pszenne", "pumpernikiel", "bułka"];
 
 	public string Description = string.Empty;
@@ -13,8 +14,8 @@ public class MenuItem
 
 	public void Generate()
 	{
-		string randomProtein = Proteins[_randomizer.Next(Proteins.Length)];
-		string randomCondiment = Condiments[_randomizer.Next(Condiments.Length)];
+		string randomProtein = _proteins[_randomizer.Next(_proteins.Length)];
+		string randomCondiment = _condiments[_randomizer.Next(_condiments.Length)];
 		string randomBread = Breads[_randomizer.Next(Breads.Length)];
 		Description = randomProtein + " i " + randomCondiment + ". Pieczywo: " + randomBread + ".";
 

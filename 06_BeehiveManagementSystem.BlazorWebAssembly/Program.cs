@@ -1,4 +1,4 @@
-using _06_BeehiveManagementSystem.BlazorWebAssembly;
+using BeehiveManagementSystem.BlazorWebAssembly;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

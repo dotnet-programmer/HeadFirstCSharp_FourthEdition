@@ -1,4 +1,4 @@
-using _02_Controls.BlazorWebAssembly;
+using Controls.BlazorWebAssembly;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

@@ -4,6 +4,9 @@ public class CardComparerByValue : IComparer<Card>
 {
 	public int Compare(Card? x, Card? y)
 	{
+		ArgumentNullException.ThrowIfNull(x);
+		ArgumentNullException.ThrowIfNull(y);
+
 		if (x.Suit < y.Suit)
 		{
 			return -1;

@@ -1,4 +1,4 @@
-﻿namespace _06_BeehiveManagementSystem.BlazorWebAssembly;
+﻿namespace BeehiveManagementSystem.BlazorWebAssembly;
 
 internal class EggCare(Queen queen) : Bee("Egg Care")
 {
@@ -6,8 +6,7 @@ internal class EggCare(Queen queen) : Bee("Egg Care")
 
     private readonly Queen _queen = queen;
 
-    public override float CostPerShift
-        => 1.35f;
+    public override float CostPerShift => 1.35f;
 
     protected override void DoJob()
         => _queen.CareForEggs(CARE_PROGRESS_PER_SHIFT);

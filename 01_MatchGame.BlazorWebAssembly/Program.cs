@@ -1,4 +1,4 @@
-using _01_MatchGame.BlazorWebAssembly;
+using MatchGame.BlazorWebAssembly;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

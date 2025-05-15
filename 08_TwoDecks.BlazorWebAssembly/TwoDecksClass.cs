@@ -5,11 +5,8 @@ public class TwoDecksClass
 	private Deck _leftDeck = [];
 	private readonly Deck _rightDeck = [];
 
-	public int LeftDeckCount
-		=> _leftDeck.Count;
-
-	public int RightDeckCount
-		=> _rightDeck.Count;
+	public int LeftDeckCount => _leftDeck.Count;
+	public int RightDeckCount => _rightDeck.Count;
 
 	public int LeftCardSelected { get; set; }
 	public int RightCardSelected { get; set; }

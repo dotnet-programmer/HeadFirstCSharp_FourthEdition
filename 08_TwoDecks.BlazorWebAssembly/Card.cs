@@ -5,8 +5,7 @@ public class Card(Values value, Suits suit)
 	public Values Value { get; private set; } = value;
 	public Suits Suit { get; private set; } = suit;
 
-	public string Name
-		=> $"{Value} {Suit}";
+	public string Name => $"{Value} {Suit}";
 
 	public override string ToString()
 		=> Name;

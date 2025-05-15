@@ -1,4 +1,4 @@
-﻿namespace _06_BeehiveManagementSystem.BlazorWebAssembly;
+﻿namespace BeehiveManagementSystem.BlazorWebAssembly;
 
 public class Bee(string job)
 {

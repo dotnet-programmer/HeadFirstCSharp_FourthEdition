@@ -1,0 +1,9 @@
+﻿.container {
+	width: 400px;
+}
+
+button {
+	width: 100px;
+	height: 100px;
+	font-size: 50px;
+}
